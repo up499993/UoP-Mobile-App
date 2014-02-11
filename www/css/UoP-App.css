@@ -1,0 +1,12 @@
+/*!
+*
+* UoP Mobile App CSS v1.0.0
+* Date: Tue Feb 04 2014 16:27:22 UTC
+* 
+*/
+
+.ui-block-a , .ui-block-b, .ui-block-c, .ui-block-d
+{
+	text-align: center;
+	vertical-align:text-top;
+}
