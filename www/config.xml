@@ -49,6 +49,7 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 	<gap:plugin name="dk.interface.cordova.plugin.googlenavigate" />
+	<gap:plugin name="org.apache.cordova.geolocation" />
 	<!-- Define Platforms -->
 	<gap:platform name="android" />
 	<gap:platform name="winphone" />
