@@ -48,7 +48,10 @@
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-
+	<!-- Define Platforms -->
+	<gap:platform name="android" />
+	<gap:platform name="winphone" />
+	
     <!-- Define app icon for each platform. -->
     <icon src="UoP.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />

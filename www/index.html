@@ -29,19 +29,21 @@
 		<script type="text/javascript" src="js/googlemaps.js"></script>
 		
 		<!-- Link Phonegap -->
-		<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 		<script type="text/javascript" charset="utf-8">
 
 		// Wait for device API libraries to load
 		//
 		function onLoad() {
 			document.addEventListener("deviceready", onDeviceReady, false);
+			
 		}
 
 		// device APIs are available
 		//
+		
 		function onDeviceReady() {
-			
 			var map = new GoogleMap();
 			map.initialize();
 		}
