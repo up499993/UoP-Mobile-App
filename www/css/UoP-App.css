@@ -10,3 +10,17 @@
 	text-align: center;
 	vertical-align:text-top;
 }
+
+#map-canvas
+{
+	height:100%;
+}
+
+.pg-title
+{
+	margin:0;
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #59379e;
+	text-align:center;
+}
