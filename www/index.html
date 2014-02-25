@@ -20,7 +20,7 @@
 		<script src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script src="js/jquery.mobile-1.4.1.min.js"></script>
 		
-				<!-- Link Font Awesome -->
+		<!-- Link Font Awesome -->
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		
 		<!-- Link Google Maps -->
@@ -58,13 +58,13 @@
 		<div data-role="page" id="home">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
-				<div class="ui-grid-c">
+				<div class="ui-grid-b">
 					<div class="ui-block-a">
 						<a href="#freepc" alt="Free PC Finder"><i class="fa fa-desktop fa-3x fa-align-center"></i><br />Free PC Finder</a>
 					</div>
@@ -74,9 +74,6 @@
 					<div class="ui-block-c">
 						<a href="#cwk" alt="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
 					</div>
-					<div class="ui-block-d">
-						<a href="#maps" alt="Interactive Maps"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
-					</div>
 					<div class="ui-block-a">
 						&nbsp;
 					</div>
@@ -86,20 +83,32 @@
 					<div class="ui-block-c">
 						&nbsp;
 					</div>
-					<div class="ui-block-d">
-						&nbsp;
-					</div>
 					<div class="ui-block-a">
+						<a href="#maps" alt="Interactive Maps" onclick="window.setTimeout(initialize, 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
+					</div>					
+					<div class="ui-block-b">
 						<a href="#bus" alt="Bus Times"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
 					</div>
-					<div class="ui-block-b">
+					<div class="ui-block-c">
 						<a href="#timetable" alt="My Timetable"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
 					</div>
+					<div class="ui-block-a">
+						&nbsp;
+					</div>
+					<div class="ui-block-b">
+						&nbsp;
+					</div>
 					<div class="ui-block-c">
+						&nbsp;
+					</div>
+					<div class="ui-block-a">
 						<a href="#directory" alt="Uni Directory"><i class="fa fa-phone-square fa-3x"></i><br />Uni Directory</a>
 					</div>
-					<div class="ui-block-d">
+					<div class="ui-block-b">
 						<a href="#roomavailability" alt="Room Availability"><i class="fa fa-building-o fa-3x"></i><br />Room Availability</a>
+					</div>
+					<div class="ui-block-c">
+						<a href="#library" alt="Library"><i class="fa fa-book fa-3x"></i><br />Library</a>
 					</div>
 				</div>
 			</div>
@@ -118,6 +127,7 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+			<h1 class="pg-title">Find a PC</h1>
 			</div>
 			<!-- /content -->
 			
@@ -134,6 +144,98 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">Useful Info</h1>
+				<p>This page contains useful information for students about the services and facilities provided by the University of Portsmouth. Click on a department to show more information about it.</p>
+				<div data-role="collapsible-set" data-mini="true">
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Academic Skills Unit</h3>
+					   <p>Academic Skills Unit Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Additional Support and Disability Advice Centre</h3>
+					   <p>Additional Support and Disability Advice Centre Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Careers and Recruitment</h3>
+					   <p>Careers and Recruitment Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Catering</h3>
+					   <p>Catering Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Chaplaincy</h3>
+					   <p>Chaplaincy Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Clubs and Societies</h3>
+					   <p>Clubs and Societies Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Computers and IT</h3>
+					   <p>Computers and IT Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Counselling and Well-being Services</h3>
+					   <p>Counselling and Well-being Services Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>English for Academic Purposes</h3>
+					   <p>English for Academic Purposes Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Exchange Programmes</h3>
+					   <p>Exchange Programmes Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Health and Well-being</h3>
+					   <p>Health and Well-being Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Housing</h3>
+					   <p>Housing Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>International and EU Students</h3>
+					   <p>International and EU Students Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Library</h3>
+					   <p>Library Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Maths Cafe</h3>
+					   <p>Maths Cafe Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Nursery</h3>
+					   <p>Nursery Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Sport and Recreation</h3>
+					   <p>Sport and Recreation Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Student Finance</h3>
+					   <p>Student Finance Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Student Opportunities</h3>
+					   <p>Student Opportunities Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Student Projects</h3>
+					   <p>Student Projects Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Student Union</h3>
+					   <p>Student Union Info.....</p>
+					</div>
+					<div data-role="collapsible" data-mini="true">
+					   <h3>Uni Bus</h3>
+					   <p>Uni Bus Info.....</p>
+					</div>
+				</div>
 			</div>
 			<!-- /content -->
 			
@@ -150,6 +252,7 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">Coursework Reminders</h1>
 			</div>
 			<!-- /content -->
 			
@@ -167,7 +270,7 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content" id="map-canvas">
-			
+				
 			</div>
 			<script>initialize();</script>
 			<!-- /content -->
@@ -185,6 +288,7 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">Bus Times</h1>
 			</div>
 			<!-- /content -->
 			
@@ -201,6 +305,7 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">Personalised Timetable</h1>
 			</div>
 			<!-- /content -->
 			
@@ -217,13 +322,14 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">University Directory</h1>
 			</div>
 			<!-- /content -->
 			
 		</div>
 		<!-- /page -->
 		
-		<!-- Start of Room Availabiloty App Screen -->
+		<!-- Start of Room Availability App Screen -->
 		<div data-role="page" id="roomavailability">
 			<!-- Header -->
 			<div data-role="header">
@@ -233,6 +339,24 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content">
+				<h1 class="pg-title">Room Availability Checker</h1>
+			</div>
+			<!-- /content -->
+			
+		</div>
+		<!-- /page -->
+		
+		<!-- Start of RoomLibrary App Screen -->
+		<div data-role="page" id="library">
+			<!-- Header -->
+			<div data-role="header">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<h1>UoP:App</h1>
+			</div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content">
+				<h1 class="pg-title">University Library</h1>
 			</div>
 			<!-- /content -->
 			
