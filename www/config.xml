@@ -50,6 +50,7 @@
     -->
 	<gap:plugin name="dk.interface.cordova.plugin.googlenavigate" />
 	<gap:plugin name="org.apache.cordova.geolocation" />
+	<gap:plugin name="nl.x-services.plugins.calendar" />
 	<!-- Define Platforms -->
 	<gap:platform name="android" />
 	<gap:platform name="winphone" />
