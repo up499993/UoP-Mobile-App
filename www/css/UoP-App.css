@@ -1,7 +1,7 @@
 /*!
 *
 * UoP Mobile App CSS v1.0.0
-* Date: Tue Feb 04 2014 16:27:22 UTC
+* Last Edit: Thu Feb 27 2014 22.14:22 UTC
 * 
 */
 
@@ -23,4 +23,16 @@
 	padding-left: 5px;
 	color: #59379e;
 	text-align:center;
+}
+
+.float-right {
+float: right;
+margin-left: 1em;
+margin-bottom: 1em;
+}
+
+.float-left {
+float: left;
+margin-left: 1em;
+margin-bottom: 1em;
 }
