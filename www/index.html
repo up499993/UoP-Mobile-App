@@ -1104,15 +1104,67 @@
 								<li>You should now be connected to the network, check the wireless network (from Settings - WiFi) has a tick against it or the wireless symbol is active in the menu bar.</li>
 							</ol>
 							<p class="bold">Manual Configuration</p>
-							
+							<p>If you do not want to use the automatic configuration tool, or you do not have an active internet connection, use these instructions to setup your wireless connection manually</p>
+							<ol>
+								<li>From the Home screen, select Settings.</li>
+								<li>Then choose Wi-Fi.</li>
+								<li>Tap the Network eduroam (do not tap the settings icon).</li>
+								<li>Enter your computer account username@port.ac.uk, e.g. and password when prompted and press Join.</li>
+								<li>When you recieve a warning about the certificate, press Accept.</li>
+							</ol>
 							</div>
 							<div data-role="collapsible" data-mini="true">
 							<h3>Android</h3>
 							<p>Instructions on how to set up the UoP Wifi on your Android Device</p>
+							<ol>
+								<li>Ensure you have set a wireless password, this is an additional layer of security when connecting to the wireless.</li>
+								<li>Select Settings - Wireless & Networks - connect to eduroam</li>
+								<li>Use the following settings to connect:
+									<ul>
+										<li>EAP Method: PEAP</li>
+										<li>Phase 2 Authentication: MSCHAPv2</li>
+										<li>Identity: your computer account username@port.ac.uk </li>
+											<ul>
+												<li>Student example: up669537@port.ac.uk</li>
+												<li>Staff example: bloggsj@port.ac.uk</li>
+											</ul>
+										<li>Password: your computer account password</li>
+										<li>Anonymous Identity: leave blank</li>
+							</ol>
 							</div>
 							<div data-role="collapsible" data-mini="true">
-							<h3></h3>
-							<p></p>
+							<h3>Windows Phone</h3>
+							<p>Instructions on how to set up the UoP Wifi on your Windows Phone</p>
+							<ol>
+								<li>Select Settings tab --> select 'Wireless & Networks' --> Scan for wireless networks and select eduroam</li>
+								<li>Configure using the following:
+									<ul>
+										<li>Username = University username@port.ac.uk, e.g. up669537@port.ac.uk</li>
+										<li>Password = University password (case sensitive)</li>
+									</ul>
+								<li>You should now be connected. Test the connection by checking under the wireless settings that eduroam is the active connection.</li>
+							</ol>
+							</div>
+							<div data-role="collapsible" data-mini="true">
+							<h3>Other</h3>
+							<p>The following are general settings for the University Wireless Network.</p>
+							<ul>
+								<li>Wireless network name (SSID) - eduroam</li>
+								<li>Operating mode/type - Network (Infrastructure)</li>
+								<li>Authentication/association - WPA2 - Enterprise</li>
+								<li>Data Encryption - AES</li>
+								<li>Authentication type - PEAP</li>
+								<li>Authentication protocol - MSCHAP v2</li>
+								<li>User credentials/login - your computer account username@port.ac.uk and normal password</li>
+								<li>Roaming identity/login domain - leave blank</li>
+								<li>Validate server certificate - AddTrust External CA Root</li>
+								<li>Server certificate issuer - wifi.port.ac.uk</li>
+									<ul>
+									<li>issued by TERENA SSL CA</li>
+									<li>verified by UTN-USERFirst-Hardware and AddTrust External CA Root</li>
+									</ul>
+								<li>TCP/IP protocol - obtain configuration automatically from DHCP server </li>
+							</ul>
 							</div>
 						</div>
 						</div>
