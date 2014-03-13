@@ -265,30 +265,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop1WTimes.length;i++)
 			{ 
-			console.log(stop1WTimes[i]);
+				busTime = stop1Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop1WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop1Times.length;i++)
 			{ 
-			//console.log(stop1Times[i]);
-			busTime = stop1Times[i];
-			var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-			var result = [
-			Math.floor(difference / 3600), // disp full hours
-			Math.floor((difference % 3600) / 60) // disp full mins
+			
+				busTime = stop1Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
 
-			];
+					];
 
-			// 0 padding and concatation
-			result = result.map(function(v) {
-				return v < 10 ? '0' + v : v;
-			}).join(':');
-			var hrs = result.substring(0,2);
-			var min = result.substring(3,5);
-			var dispResult = hrs + "Hrs " + min + "Mins";
-			console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -299,14 +360,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop2WTimes.length;i++)
 			{ 
-			console.log(stop2WTimes[i]);
+				busTime = stop2Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop2WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop2Times.length;i++)
 			{ 
-			console.log(stop2Times[i]);
+			
+				busTime = stop2Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -317,14 +455,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop3WTimes.length;i++)
 			{ 
-			console.log(stop3WTimes[i]);
+				busTime = stop3Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop3WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop3Times.length;i++)
 			{ 
-			console.log(stop3Times[i]);
+			
+				busTime = stop3Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -335,14 +550,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop4WTimes.length;i++)
 			{ 
-			console.log(stop4WTimes[i]);
+				busTime = stop4Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop4WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop4Times.length;i++)
 			{ 
-			console.log(stop4Times[i]);
+			
+				busTime = stop4Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -353,14 +645,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop5WTimes.length;i++)
 			{ 
-			console.log(stop5WTimes[i]);
+				busTime = stop5Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop5WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop5Times.length;i++)
 			{ 
-			console.log(stop5Times[i]);
+			
+				busTime = stop5Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -371,14 +740,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop6WTimes.length;i++)
 			{ 
-			console.log(stop6WTimes[i]);
+				busTime = stop6Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop6WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop6Times.length;i++)
 			{ 
-			console.log(stop6Times[i]);
+			
+				busTime = stop6Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -389,14 +835,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop7WTimes.length;i++)
 			{ 
-			console.log(stop7WTimes[i]);
+				busTime = stop7Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop7WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop7Times.length;i++)
 			{ 
-			console.log(stop7Times[i]);
+			
+				busTime = stop7Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -407,14 +930,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop8WTimes.length;i++)
 			{ 
-			console.log(stop8WTimes[i]);
+				busTime = stop8Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop8WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop8Times.length;i++)
 			{ 
-			console.log(stop8Times[i]);
+			
+				busTime = stop8Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -425,14 +1025,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop9WTimes.length;i++)
 			{ 
-			console.log(stop9WTimes[i]);
+				busTime = stop9Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop9WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop9Times.length;i++)
 			{ 
-			console.log(stop9Times[i]);
+			
+				busTime = stop9Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -443,14 +1120,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop10WTimes.length;i++)
 			{ 
-			console.log(stop10WTimes[i]);
+				busTime = stop10Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop10WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop10Times.length;i++)
 			{ 
-			console.log(stop10Times[i]);
+			
+				busTime = stop10Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -461,14 +1215,91 @@ var busTimes;
 		{
 			for (var i=0;i<stop11WTimes.length;i++)
 			{ 
-			console.log(stop11WTimes[i]);
+				busTime = stop11Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop11WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop11Times.length;i++)
 			{ 
-			console.log(stop11Times[i]);
+			
+				busTime = stop11Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
@@ -479,19 +1310,95 @@ var busTimes;
 		{
 			for (var i=0;i<stop12WTimes.length;i++)
 			{ 
-			console.log(stop12WTimes[i]);
+				busTime = stop12Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop12WTimes[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 		else if (weekend == "No")
 		{
 			for (var i=0;i<stop12Times.length;i++)
 			{ 
-			console.log(stop12Times[i]);
+			
+				busTime = stop12Times[i];
+				
+				if (toSeconds(busTime) < toSeconds(currTime))
+				{
+					newBusTime = toSeconds(busTime) + 86400;
+					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+				}
+				else
+				{
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+				}
 			}
 		}
 	}
-
-  
+/*  
   var busTime = "18:33:00";
   
  
@@ -512,4 +1419,5 @@ result = result.map(function(v) {
     return v < 10 ? '0' + v : v;
 }).join(':');
 console.log("Diff Between times: " + result);
+*/
  }
