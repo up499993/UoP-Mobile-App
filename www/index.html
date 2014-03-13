@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		
 		<!-- Link Google Maps -->
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=true"></script>
 		<script type="text/javascript" src="js/googlemap.js"></script>
 		
 		<!-- Link Bus Times Scripts -->
@@ -94,7 +94,7 @@
 						<a href="#maps" alt="Interactive Maps" onclick="window.setTimeout(initialize, 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
 					</div>					
 					<div class="ui-block-b">
-						<a href="#bus" alt="Bus Times"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
+						<a href="#bus" alt="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
 					</div>
 					<div class="ui-block-c">
 						<a href="#timetable" alt="My Timetable"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
@@ -1890,6 +1890,7 @@
 			<!-- Content    -->
 			<div data-role="content">
 				<h1 class="pg-title">Bus Times</h1>
+				<p><span class="bold">Nearest Bus Stop: </span><span id="nearestStop"></span></p>
 			</div>
 			<!-- /content -->
 			
