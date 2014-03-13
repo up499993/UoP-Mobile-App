@@ -180,23 +180,43 @@ function distanceToStops()
   
   // Display Nearest Stop On Page
   document.querySelector('#nearestStop').innerHTML = nearestStop;
-  /*
-  console.log(distCurrTo1);
-  console.log(distCurrTo2);
-  console.log(distCurrTo3);
-  console.log(distCurrTo4);
-  console.log(distCurrTo5);
-  console.log(distCurrTo6);
-  console.log(distCurrTo7);
-  console.log(distCurrTo8);
-  console.log(distCurrTo9);
-  console.log(distCurrTo10);
-  console.log(distCurrTo11);
-  console.log(distCurrTo12);
-  console.log("Curr Pos:" + currPos_G);
-  console.log("Max Dist: " + maxDist);
-  console.log("Min Dist: " + minDist);
-  console.log("Nearest Stop: " + nearestStop);
-  */
+  
+  
+  nextBus();
   }
- 
+  
+  
+
+function nextBus() {
+
+//Get Current Time
+  var d = new Date(); // for now
+  var currTime= d.getHours() + ":" + d.getMinutes() + ":00";
+  var busTime = "18:30:00";
+    
+  //Convert a time to Seconds
+  function toSeconds(time_str) {
+    // Extract hours, minutes and seconds
+    var parts = time_str.split(':');
+    // compute  and return total seconds
+    return parts[0] * 3600 + // an hour has 3600 seconds
+    parts[1] * 60 + // a minute has 60 seconds
+    +
+    parts[2]; // seconds
+}
+// Get difference between times
+var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
+
+// format time differnece
+var result = [
+    Math.floor(difference / 3600), // disp full hours
+    Math.floor((difference % 3600) / 60) // disp full mins
+
+];
+
+// 0 padding and concatation
+result = result.map(function(v) {
+    return v < 10 ? '0' + v : v;
+}).join(':');
+console.log(result);
+ }
