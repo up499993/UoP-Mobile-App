@@ -40,3 +40,23 @@ margin-bottom: 1em;
 .bold {
 font-weight:bold;
 }
+
+#homeScreen
+{
+	height:100% !important;
+}
+
+.homeIcon
+{
+	height:33% !important;
+}
+
+.ui-page
+{
+	height:100% !important;
+}
+
+.ui-content
+{
+	height:100% !important;
+}
