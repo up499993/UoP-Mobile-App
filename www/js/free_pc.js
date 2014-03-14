@@ -1,8 +1,22 @@
 function freePC() {
-	var jsonOA = generateDummyData();
-	alert(jsonOA);
+var url = "http://proj.scottwalton.co.uk/json_proxy/oa.php";
+    $.getJSON(url, function(oa) {
+             console.log(oa.Library);
+			 console.log(oa.Park);
+             console.log(oa.Burnaby);
+			 console.log(oa.Anglesea);
+          });
+
+//For Testing with Dummy Data
+/*		  
+var jsonOA = generateDummyData();
+var OA = JSON.parse(jsonOA);
+
+*/
+
  }
  
+// Generate Dummy JSON for testing
 function generateDummyData(){
 // Define Objects
 
@@ -30,6 +44,7 @@ Anglesea.Status = "2";
 Anglesea.Available = "8";
 Anglesea.Inuse = "4";
 Anglesea.Total = "12";
+
 
 
 // Merge Objects
