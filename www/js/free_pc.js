@@ -6,6 +6,8 @@ var furthestOA;
 var closestOA;
 var nearestOA;
 
+//status 0 is closed, status 1 is almost full, status 2 is available
+
 function freePC() {
 $.ajax({
     url: 'http://proj.scottwalton.co.uk/json_proxy/oa.php',
@@ -99,15 +101,26 @@ $.ajax({
 		return a.dist - b.dist;
 	})[0][1];
 
-	//testing
-	distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available = 0;
-	distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available = 0;
-	distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available = 0;
-	distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available = 1;
+		
+	//Check to see if open
+	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].status === 0)
+	{
+		distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available = 0;
+	}
+	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].status === 0)
+	{
+		distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available = 0;
+	}
+	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[2].status === 0)
+	{
+		distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available = 0;
+	}
+	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[3].status === 0)
+	{
+		distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available = 0;
+	}
 	
-	console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[0].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[1].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[2].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[3].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available);
-	
-	//end
+	// Check if any free PCs
 	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available < 1) 
 	{
 		if (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available < 1) 
