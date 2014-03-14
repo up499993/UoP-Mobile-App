@@ -99,13 +99,46 @@ $.ajax({
 		return a.dist - b.dist;
 	})[0][1];
 
-	console.log(distToOA.sort(function(a, b)
+	//testing
+	distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available = 0;
+	distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available = 0;
+	distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available = 0;
+	distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available = 1;
+	
+	console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[0].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[1].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[2].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[3].name + " " + distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available);
+	
+	//end
+	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available < 1) 
 	{
-		return a.dist - b.dist;
-	})[0].name);
-	  
-	  
-	  
+		if (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available < 1) 
+		{
+			if (distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available < 1) 
+			{
+				if (distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available < 1) 
+				{
+					console.log("No Free PCs");
+				}
+				else
+				{
+					console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[3].name);
+				}
+			}
+			else
+			{
+				console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[2].name);
+			}
+		}
+		else
+		{
+			console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[1].name);
+		}
+	}
+	else
+	{
+		console.log(distToOA.sort(function(a, b){return a.dist - b.dist;})[0].name);
+	}
+		
+		
 	  // Display Nearest OA On Page
 	  //document.querySelector('#nearestOA').innerHTML = nearestOA;
 	  
