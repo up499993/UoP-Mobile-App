@@ -1,5 +1,6 @@
 function freePC() {
-	generateDummyData();
+	var jsonOA = generateDummyData();
+	alert(jsonOA);
  }
  
 function generateDummyData(){
@@ -46,6 +47,7 @@ var jsonAnglesea = JSON.stringify(Anglesea);
 var jsonOA = JSON.stringify(OA);
 
 //Output
+return jsonOA;
 console.log(jsonOA);
 }
 
