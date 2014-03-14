@@ -2169,7 +2169,13 @@ console.log("Diff Between times: " + result);
  function showMap() {
 	document.getElementById('bus-stop-map-canvas').style.display="block";
 	initializeBusStopMap()
+	document.getElementById("showMapBtn").onclick = hideMap;
 	}
+	
+function hideMap() {
+	document.getElementById('bus-stop-map-canvas').style.display="none";
+	document.getElementById("showMapBtn").onclick = showMap;
+}
  
  function initializeBusStopMap() {
   var mapOptions = {
