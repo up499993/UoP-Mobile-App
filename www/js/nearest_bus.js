@@ -49,7 +49,7 @@ Long:-1.0961453
 Lat:50.7937268
 */
 
-//Setup Variables
+//Setup Global Variables
 var currLat;
 var currLong;
 var currPos;
