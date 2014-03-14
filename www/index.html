@@ -33,7 +33,9 @@
 		
 		<!-- Link Bus Times Scripts -->
 		<script type="text/javascript" src="js/nearest_bus.js"></script>
-		  
+		
+		<!-- Link Free PC Finder Scripts -->
+		<script type="text/javascript" src="js/free_pc.js"></script> 
 		
 		<!-- Link Phonegap -->
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -73,7 +75,7 @@
 			<div data-role="content">
 				<div id="homeScreen" class="ui-grid-b">
 					<div class="ui-block-a homeIcon">
-						<a href="#freepc" title="Free PC Finder"><i class="fa fa-desktop fa-3x fa-align-center"></i><br />Free PC Finder</a>
+						<a href="#freepc" title="Free PC Finder" onclick="window.setTimeout(freePC(), 500);"><i class="fa fa-desktop fa-3x fa-align-center"></i><br />Free PC Finder</a>
 					</div>
 					<div class="ui-block-b homeIcon">
 						<a href="#info" title="Useful Info"><i class="fa fa-info-circle fa-3x fa-align-center"></i><br />Useful Info</a>
