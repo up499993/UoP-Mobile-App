@@ -2122,7 +2122,26 @@ var busTimes;
 		}
 	}
 	
-	 
+	//loadScript();
+	
+	//produce and display map of bus stop
+	var latlng = "(58.39847354300152, 15.579836368560791)"
+	
+/*
+	// Remove the parentheses and whitespace
+	latlng = toString(stop1);
+	alert (latlng);
+	latlng  = latlng.replace(/[() ]/g,'')
+
+	// Now your code 
+	var split = latlng.split(",");
+	var lat = split[0];
+	var lng = split[1];
+	
+	alert(lat);
+	alert(lng);*/
+	
+	
 /*  
   var busTime = "18:33:00";
   
@@ -2146,3 +2165,40 @@ result = result.map(function(v) {
 console.log("Diff Between times: " + result);
 */
  }
+ 
+ function showMap() {
+	document.getElementById('bus-stop-map-canvas').style.display="block";
+	initializeBusStopMap()
+	}
+ 
+ function initializeBusStopMap() {
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop1
+  };
+
+  var map = new google.maps.Map(document.getElementById('bus-stop-map-canvas'),
+      mapOptions);
+	  
+
+	  var pos = stop1;
+
+    marker = new google.maps.Marker({
+    map:map,
+    draggable:false,
+    animation: google.maps.Animation.DROP,
+    position: pos
+  });
+}
+
+function refreshMap() {
+  initializeBusStopMap();
+  }
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+      'callback=initializeBusStopMap';
+  document.body.appendChild(script);
+}
