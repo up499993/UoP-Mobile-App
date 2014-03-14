@@ -65,7 +65,7 @@
 		<div data-role="page" id="home">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -73,31 +73,31 @@
 			<div data-role="content">
 				<div id="homeScreen" class="ui-grid-b">
 					<div class="ui-block-a homeIcon">
-						<a href="#freepc" alt="Free PC Finder"><i class="fa fa-desktop fa-3x fa-align-center"></i><br />Free PC Finder</a>
+						<a href="#freepc" title="Free PC Finder"><i class="fa fa-desktop fa-3x fa-align-center"></i><br />Free PC Finder</a>
 					</div>
 					<div class="ui-block-b homeIcon">
-						<a href="#info" alt="Useful Info"><i class="fa fa-info-circle fa-3x fa-align-center"></i><br />Useful Info</a>
+						<a href="#info" title="Useful Info"><i class="fa fa-info-circle fa-3x fa-align-center"></i><br />Useful Info</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#cwk" alt="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
+						<a href="#cwk" title="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
 					</div>
 					<div class="ui-block-a homeIcon">
-						<a href="#maps" alt="Interactive Maps" onclick="window.setTimeout(initialize, 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
+						<a href="#maps" title="Interactive Maps" onclick="window.setTimeout(initialize, 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
 					</div>					
 					<div class="ui-block-b homeIcon">
-						<a href="#bus" alt="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
+						<a href="#bus" title="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#timetable" alt="My Timetable"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
+						<a href="#timetable" title="My Timetable"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
 					</div>
 					<div class="ui-block-a homeIcon">
-						<a href="#directory" alt="Uni Directory"><i class="fa fa-phone-square fa-3x"></i><br />Uni Directory</a>
+						<a href="#directory" title="Uni Directory"><i class="fa fa-phone-square fa-3x"></i><br />Uni Directory</a>
 					</div>
 					<div class="ui-block-b homeIcon">
-						<a href="#roomavailability" alt="Room Availability"><i class="fa fa-building-o fa-3x"></i><br />Room Availability</a>
+						<a href="#roomavailability" title="Room Availability"><i class="fa fa-building-o fa-3x"></i><br />Room Availability</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#library" alt="Library"><i class="fa fa-book fa-3x"></i><br />Library</a>
+						<a href="#library" title="Library"><i class="fa fa-book fa-3x"></i><br />Library</a>
 					</div>
 				</div>
 			</div>
@@ -110,7 +110,7 @@
 		<div data-role="page" id="freepc">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -127,7 +127,7 @@
 		<div data-role="page" id="info">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1829,7 +1829,7 @@
 		<div data-role="page" id="cwk">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1846,7 +1846,7 @@
 		<div data-role="page" id="maps">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 				
 			</div>
@@ -1865,7 +1865,8 @@
 		<div data-role="page" id="bus">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
+				<a href="#" data-role="button" data-icon="refresh" data-iconpos="notext" onclick="window.setTimeout(getLocation(), 500);" title="Refresh">Refresh</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1889,7 +1890,7 @@
 		<div data-role="page" id="timetable">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1906,7 +1907,7 @@
 		<div data-role="page" id="directory">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1923,7 +1924,7 @@
 		<div data-role="page" id="roomavailability">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
@@ -1940,7 +1941,7 @@
 		<div data-role="page" id="library">
 			<!-- Header -->
 			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
 				<h1>UoP:App</h1>
 			</div>
 			<!-- /header -->
