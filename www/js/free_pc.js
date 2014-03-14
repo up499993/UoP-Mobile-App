@@ -1,16 +1,29 @@
 function freePC() {
-var url = "http://proj.scottwalton.co.uk/json_proxy/oa.php";
-    $.getJSON(url, function(oa) {
-             console.log(oa.Library);
-			 console.log(oa.Park);
-             console.log(oa.Burnaby);
-			 console.log(oa.Anglesea);
-          });
+$.ajax({
+    url: 'http://proj.scottwalton.co.uk/json_proxy/oa.php',
+    dataType: 'json',
+    success: function( oa ) {
+	console.log(oa.Library);
+	console.log(oa.Park);
+	console.log(oa.Burnaby);
+	console.log(oa.Anglesea);
+    },
+    error: function( oa ) {
+    var jsonOA = generateDummyData();
+	var oa = JSON.parse(jsonOA);
+	console.log(oa.Library);
+	console.log(oa.Park);
+	console.log(oa.Burnaby);
+	console.log(oa.Anglesea);
 
-//For Testing with Dummy Data
-/*		  
-var jsonOA = generateDummyData();
-var OA = JSON.parse(jsonOA);
+    }
+  });
+
+
+//Find Closest OA
+
+/* OA Lat Long
+
 
 */
 
@@ -20,7 +33,6 @@ var OA = JSON.parse(jsonOA);
 function generateDummyData(){
 // Define Objects
 
-// Statuses : 1 = Closed, 2 = Open (Green), 3 = Open (Amber), 4 = Open (Red)
 var Library = new Object(); 
 Library.Status = "2";       
 Library.Available = "108";
