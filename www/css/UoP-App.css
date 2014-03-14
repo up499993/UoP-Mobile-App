@@ -16,6 +16,18 @@
 	height:100%;
 }
 
+#bus-stop-map-canvas
+{
+	height:50%;
+	overflow:visible !important;
+	display:none;
+}
+
+#showMapBtn
+{
+	width:25%;
+	}
+
 .pg-title
 {
 	margin:0;
