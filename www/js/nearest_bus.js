@@ -257,7 +257,10 @@ var stop12WTimes = ['10:16:00','10:56:00','11:36:00','12:16:00','13:36:00','14:1
 //Get Closest Bus Time  
 var busTimes;
 	
-	
+	//Manual Overide Location
+	//stopNo = 1;
+	//currTime = "20:05:00";
+	//END MANUAL OVERIDE
 	if (stopNo == 1)
 	{
 		console.log("Stop No: " + stopNo);
@@ -265,12 +268,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop1WTimes.length;i++)
 			{ 
-				busTime = stop1Times[i];
-				
+				busTime = stop1WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop1WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -285,34 +316,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop1WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop1WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop1Times.length;i++)
 			{ 
-			
 				busTime = stop1Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -330,10 +363,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop1Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -348,9 +391,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop1Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop1Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 2)
@@ -360,12 +423,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop2WTimes.length;i++)
 			{ 
-				busTime = stop2Times[i];
-				
+				busTime = stop2WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop2WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -380,34 +471,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop2WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop2WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop2Times.length;i++)
 			{ 
-			
 				busTime = stop2Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -425,10 +518,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop2Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -443,9 +546,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop2Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop2Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 3)
@@ -455,12 +578,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop3WTimes.length;i++)
 			{ 
-				busTime = stop3Times[i];
-				
+				busTime = stop3WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop3WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -475,34 +626,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop3WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop3WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop3Times.length;i++)
 			{ 
-			
 				busTime = stop3Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -520,10 +673,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop3Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -538,9 +701,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop3Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop3Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 4)
@@ -550,12 +733,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop4WTimes.length;i++)
 			{ 
-				busTime = stop4Times[i];
-				
+				busTime = stop4WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop4WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -570,34 +781,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop4WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop4WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop4Times.length;i++)
 			{ 
-			
 				busTime = stop4Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -615,10 +828,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop4Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -633,9 +856,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop4Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop4Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 5)
@@ -645,12 +888,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop5WTimes.length;i++)
 			{ 
-				busTime = stop5Times[i];
-				
+				busTime = stop5WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop5WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -665,34 +936,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop5WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop5WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop5Times.length;i++)
 			{ 
-			
 				busTime = stop5Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -710,10 +983,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop5Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -728,9 +1011,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop5Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop5Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 6)
@@ -740,12 +1043,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop6WTimes.length;i++)
 			{ 
-				busTime = stop6Times[i];
-				
+				busTime = stop6WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop6WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -760,34 +1091,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop6WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop6WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop6Times.length;i++)
 			{ 
-			
 				busTime = stop6Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -805,10 +1138,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop6Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -823,9 +1166,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop6Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop6Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 7)
@@ -835,12 +1198,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop7WTimes.length;i++)
 			{ 
-				busTime = stop7Times[i];
-				
+				busTime = stop7WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop7WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -855,34 +1246,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop7WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop7WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop7Times.length;i++)
 			{ 
-			
 				busTime = stop7Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -900,10 +1293,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop7Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -918,9 +1321,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop7Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop7Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 8)
@@ -930,12 +1353,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop8WTimes.length;i++)
 			{ 
-				busTime = stop8Times[i];
-				
+				busTime = stop8WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop8WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -950,34 +1401,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop8WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop8WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop8Times.length;i++)
 			{ 
-			
 				busTime = stop8Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -995,10 +1448,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop8Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -1013,9 +1476,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop8Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop8Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 9)
@@ -1025,12 +1508,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop9WTimes.length;i++)
 			{ 
-				busTime = stop9Times[i];
-				
+				busTime = stop9WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop9WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -1045,34 +1556,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop9WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop9WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop9Times.length;i++)
 			{ 
-			
 				busTime = stop9Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -1090,10 +1603,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop9Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -1108,9 +1631,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop9Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop9Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 10)
@@ -1120,12 +1663,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop10WTimes.length;i++)
 			{ 
-				busTime = stop10Times[i];
-				
+				busTime = stop10WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop10WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -1140,34 +1711,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop10WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop10WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop10Times.length;i++)
 			{ 
-			
 				busTime = stop10Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -1185,10 +1758,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop10Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -1203,9 +1786,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop10Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop10Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 11)
@@ -1215,12 +1818,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop11WTimes.length;i++)
 			{ 
-				busTime = stop11Times[i];
-				
+				busTime = stop11WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop11WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -1235,34 +1866,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop11WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop11WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop11Times.length;i++)
 			{ 
-			
 				busTime = stop11Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -1280,10 +1913,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop11Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -1298,9 +1941,29 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop11Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop11Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
 	else if (stopNo == 12)
@@ -1310,12 +1973,40 @@ var busTimes;
 		{
 			for (var i=0;i<stop12WTimes.length;i++)
 			{ 
-				busTime = stop12Times[i];
-				
+				busTime = stop12WTimes[i];
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
 					var difference = Math.abs(toSeconds(currTime) - newBusTime);
+					var result = [
+					Math.floor(difference / 3600), // disp full hours
+					Math.floor((difference % 3600) / 60) // disp full mins
+
+					];
+
+					// 0 padding and concatation
+					result = result.map(function(v) {
+						return v < 10 ? '0' + v : v;
+					}).join(':');
+					var hrs = result.substring(0,2);
+					var min = result.substring(3,5);
+					var dispResult = hrs + "Hrs " + min + "Mins";
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop12WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
+				}
+				else
+				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
+					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
 					Math.floor((difference % 3600) / 60) // disp full mins
@@ -1330,34 +2021,36 @@ var busTimes;
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
 					console.log("Scheduled: " + stop12WTimes[i] + " Due: " + dispResult);
-				}
-				else
-				{
-					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
-					var result = [
-					Math.floor(difference / 3600), // disp full hours
-					Math.floor((difference % 3600) / 60) // disp full mins
-
-					];
-
-					// 0 padding and concatation
-					result = result.map(function(v) {
-						return v < 10 ? '0' + v : v;
-					}).join(':');
-					var hrs = result.substring(0,2);
-					var min = result.substring(3,5);
-					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop12WTimes[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No")
+		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
 		{
 			for (var i=0;i<stop12Times.length;i++)
 			{ 
-			
 				busTime = stop12Times[i];
-				
+				var nextBus;
 				if (toSeconds(busTime) < toSeconds(currTime))
 				{
 					newBusTime = toSeconds(busTime) + 86400;
@@ -1375,10 +2068,20 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop12Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 				else
 				{
+					if (nextBus < toSeconds(busTime))
+					{
+						
+					}
+					else
+					{
+						nextBus = toSeconds(busTime);
+					}
 					var difference = Math.abs(toSeconds(currTime) - toSeconds(busTime));
 					var result = [
 					Math.floor(difference / 3600), // disp full hours
@@ -1393,11 +2096,33 @@ var busTimes;
 					var hrs = result.substring(0,2);
 					var min = result.substring(3,5);
 					var dispResult = hrs + "Hrs " + min + "Mins";
-					console.log("Scheduled: " + stop12Times[i] + " Due: " + dispResult);
+					// Display Times For Nearest Stop On Page
+					var output = "Scheduled: " + stop12Times[i] + "<br /> Due: " + dispResult + "<br /><br />";
+					document.querySelector('#busTimes').innerHTML = document.querySelector('#busTimes').innerHTML + output;
 				}
 			}
+			var difference = Math.abs(toSeconds(currTime) - nextBus);
+			var result = [
+			Math.floor(difference / 3600), // disp full hours
+			Math.floor((difference % 3600) / 60) // disp full mins
+
+			];
+
+			// 0 padding and concatation
+			result = result.map(function(v) {
+				return v < 10 ? '0' + v : v;
+			}).join(':');
+			var hrs = result.substring(0,2);
+			var min = result.substring(3,5);
+			var dispResult = hrs + "Hrs " + min + "Mins";
+			console.log("Next Bus Due: " + dispResult);
+			// Display Next Bus Due On Page
+			var outputNextBus = dispResult;
+			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
 	}
+	
+	 
 /*  
   var busTime = "18:33:00";
   
