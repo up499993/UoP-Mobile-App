@@ -72,3 +72,23 @@ font-weight:bold;
 {
 	height:100% !important;
 }
+
+.percBar
+{
+	padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444; 
+	width:99.5%;
+	height:1.2em;
+	background-color:#ededed;
+	border:#333333;
+}
+
+.percent
+{
+	display: inline-block;
+    height: 1.2em !important;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    opacity: 0.6;   
+}
