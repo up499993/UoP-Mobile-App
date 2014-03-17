@@ -257,10 +257,7 @@ var stop12WTimes = ['10:16:00','10:56:00','11:36:00','12:16:00','13:36:00','14:1
 //Get Closest Bus Time  
 var busTimes;
 	
-	//Manual Overide Location
-	//stopNo = 1;
-	//currTime = "20:05:00";
-	//END MANUAL OVERIDE
+
 	if (stopNo == 1)
 	{
 		console.log("Stop No: " + stopNo);
@@ -340,7 +337,7 @@ var busTimes;
 			var outputNextBus = dispResult;
 			document.querySelector('#nextBus').innerHTML = outputNextBus;
 		}
-		else if (weekend == "No") //THIS IS THE PIECE BEING USED FOR TESTING
+		else if (weekend == "No") 
 		{
 			for (var i=0;i<stop1Times.length;i++)
 			{ 
@@ -2178,17 +2175,110 @@ function hideMap() {
 }
  
  function initializeBusStopMap() {
+	
+	console.log("Initializing Map for Stop" + stopNo);
+	if (stopNo ===1){
   var mapOptions = {
     zoom: 15,
 	scrollwheel: false,
     center: stop1
   };
+  var pos = stop1;
+  }
+  else if (stopNo === 2){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop2
+  };
+  var pos = stop2;
+  }
+  else if (stopNo === 3){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop3
+  };
+  var pos = stop3;
+  }
+  else if (stopNo === 4){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop4
+  };
+  var pos = stop4;
+  }
+  else if (stopNo === 5){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop5
+  };
+  var pos = stop5;
+  }
+  else if (stopNo === 6){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop6
+  };
+  var pos = stop6;
+  }
+  else if (stopNo === 7){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop7
+  };
+  var pos = stop8;
+  }
+  else if (stopNo === 8){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop8
+  };
+  var pos = stop8;
+  }
+  else if (stopNo === 9){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop9
+  };
+  var pos = stop9;
+  }
+  else if (stopNo === 10){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop10
+  };
+  var pos = stop10;
+  }
+  else if (stopNo === 11){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop11
+  };
+  var pos = stop11;
+  }
+  else if (stopNo === 12){
+  var mapOptions = {
+    zoom: 15,
+	scrollwheel: false,
+    center: stop12
+  };
+  var pos = stop12;
+  }
 
   var map = new google.maps.Map(document.getElementById('bus-stop-map-canvas'),
       mapOptions);
 	  
 
-	  var pos = stop1;
+	  
 
     marker = new google.maps.Marker({
     map:map,
