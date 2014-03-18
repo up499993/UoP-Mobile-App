@@ -52,6 +52,7 @@
 	<gap:plugin name="org.apache.cordova.geolocation" />
 	<gap:plugin name="nl.x-services.plugins.calendar" />
 	<gap:plugin name="com.phonegap.plugins.childbrowser" />
+	<gap:plugin name="org.apache.cordova.inappbrowser"/>
 	<!-- Define Platforms -->
 	<gap:platform name="android" />
 	<gap:platform name="winphone" />
