@@ -40,24 +40,49 @@
 		<!-- Link Free PC Finder Scripts -->
 		<script type="text/javascript" src="js/free_pc.js"></script> 
 		
-		<!-- Link Childbrowser -->
-		<script type="text/javascript" src="childbrowser.js"></script>
 		
 		<!-- Resize Elements -->
 		<script src="js/resize.js"> </script>
 		
 		<script type="text/javascript" charset="utf-8">
-        function init(){
-            document.addEventListener("deviceready", ready, true);
-        }
-        function ready() {
-            console.log("phonegap is ready !");
-        }
-		</script>
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabClose(event) {
+         alert(event.type);
+         iabRef.removeEventListener('loadstart', iabLoadStart);
+         iabRef.removeEventListener('loadstop', iabLoadStop);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+         alert('Device is ready!');
+         //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         //iabRef.addEventListener('loadstart', iabLoadStart);
+         //iabRef.addEventListener('loadstop', iabLoadStop);
+         //iabRef.addEventListener('exit', iabClose);
+    }
+
+    </script>
 		
         <title>UoP</title>
     </head>
-    <body onload="init()">
+    <body>
         <!-- Start of App Home Screen -->
 		<div data-role="page" id="home">
 			<!-- Header -->
@@ -94,7 +119,7 @@
 						<a href="#roomavailability" title="Room Availability"><i class="fa fa-building-o fa-3x"></i><br />Room Availability</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#library" title="Library" onClick="window.plugins.childBrowser.showWebPage('http://www.google.coport.ac.uk/library')"><i class="fa fa-book fa-3x"></i><br />Library</a>
+						<a href="#library" title="Library" onclick="window.open('http://www.port.ac.uk/library','_self','location=yes')"><i class="fa fa-book fa-3x"></i><br />Library</a>
 					</div>
 				</div>
 			</div>
