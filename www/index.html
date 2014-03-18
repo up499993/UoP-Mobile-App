@@ -24,6 +24,9 @@
 		<script src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script src="js/jquery.mobile-1.4.1.min.js"></script>
 		
+		<!-- Link Phonegap -->
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		
 		<!-- Link Font Awesome -->
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		
@@ -37,8 +40,8 @@
 		<!-- Link Free PC Finder Scripts -->
 		<script type="text/javascript" src="js/free_pc.js"></script> 
 		
-		<!-- Link Phonegap -->
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<!-- Link Childbrowser -->
+		<script type="text/javascript" src="js/childbrowser.js"></script>
 		
 		<!-- Resize Elements -->
 		<script src="js/resize.js"> </script>
@@ -99,7 +102,7 @@
 						<a href="#roomavailability" title="Room Availability"><i class="fa fa-building-o fa-3x"></i><br />Room Availability</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#library" title="Library"><i class="fa fa-book fa-3x"></i><br />Library</a>
+						<a href="#library" title="Library" onClick="window.plugins.childBrowser.showWebPage('http://www.google.coport.ac.uk/library')"><i class="fa fa-book fa-3x"></i><br />Library</a>
 					</div>
 				</div>
 			</div>
