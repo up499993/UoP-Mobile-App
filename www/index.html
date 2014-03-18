@@ -47,25 +47,17 @@
 		<script src="js/resize.js"> </script>
 		
 		<script type="text/javascript" charset="utf-8">
-
-		// Wait for device API libraries to load
-		//
-		function onLoad() {
-			document.addEventListener("deviceready", onDeviceReady, false);
-			
-		}
-
-		// device APIs are available
-		//
-		
-		function onDeviceReady(){
-}
-
+        function init(){
+            document.addEventListener("deviceready", ready, true);
+        }
+        function ready() {
+            console.log("phonegap is ready !");
+        }
 		</script>
 		
         <title>UoP</title>
     </head>
-    <body onload="onLoad()">
+    <body onload="init()">
         <!-- Start of App Home Screen -->
 		<div data-role="page" id="home">
 			<!-- Header -->
