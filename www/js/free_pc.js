@@ -13,6 +13,7 @@ function freePC() {
 alert("Free PC");
 //Read JSON Feed
 console.log("Fetch JSON");
+alert("Fetch JSON");
 $.ajax({
     url: 'http://proj.scottwalton.co.uk/json_proxy/oa.php',
     dataType: 'json',
