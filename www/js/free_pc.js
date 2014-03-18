@@ -10,6 +10,7 @@ var nearestPC;
 //status 0 is closed, status 1 is almost full, status 2 is available
 
 function freePC() {
+alert("Free PC");
 //Read JSON Feed
 console.log("Fetch JSON");
 $.ajax({
