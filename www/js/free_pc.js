@@ -67,7 +67,6 @@ $.ajax({
 	  {
 	  if (navigator.geolocation)
 		{
-		alert("Geolocation");
 		navigator.geolocation.getCurrentPosition(showMyPosition);
 		}
 	  else{alert("Geolocation is not supported by this browser.");}
@@ -77,7 +76,6 @@ $.ajax({
 	function showMyPosition(myPosition)
 	{
 	  console.log("Show Position");
-	  alert("Show position");
 	  myLat = myPosition.coords.latitude;
 	  myLong = myPosition.coords.longitude;
 	  myPos = [myPosition.coords.latitude,myPosition.coords.longitude];
@@ -87,7 +85,6 @@ $.ajax({
 	  function distanceToOA()
 	  {
 	  console.log("Get Distances");
-	  alert("Get Distances");
 	  // Find Distance to Each Stop from Current Position
 	  Library.dist = google.maps.geometry.spherical.computeDistanceBetween(myPos_G, Library.latlong);
 	  Park.dist = google.maps.geometry.spherical.computeDistanceBetween(myPos_G, Park.latlong);
@@ -97,15 +94,10 @@ $.ajax({
 	   console.log(Park);
 	   console.log(Burnaby);
 	   console.log(Anglesea);
-	   alert(Library);
-	   alert(Park);
-	   alert(Burnaby);
-	   alert(Anglesea);
 	 
 	  // Put Distance to each stop into an array and find shortest distance.
 	  distToOA = [Library, Park, Burnaby, Anglesea];
 	  console.log("Sort");
-	  alert("Sort");
 	  
 	  //furthestOA = Array.max(distToOA);
 	closestOA = distToOA.sort(function(a, b)
@@ -114,10 +106,8 @@ $.ajax({
 	})[0][1];
 
 	console.log("Sorted");	
-	alert("Sorted");	
 	//Check to see if open
 	console.log("Check if open");
-	alert("Check if open");
 	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].status === 0)
 	{
 		distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available = 0;
@@ -135,19 +125,15 @@ $.ajax({
 		distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available = 0;
 	}
 	console.log("Checked");
-	alert("Checked");
 	// Get Percentage Free PCs for each OA
 	console.log("Calculate percentages");
-	alert("Calculate percentages");
 	for (var i = 0; i < allOA.length; i++) {
 		allOA[i].pcs.percentFree = Math.floor((allOA[i].pcs.available / allOA[i].pcs.total) * 100);
 	}
 	console.log("Done!");
-	alert("Done!");
 	
 	// Check if any free PCs
 	console.log("Any Free PCs?");
-	alert("Any Free PCs?");
 	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available < 1) 
 	{
 		if (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available < 1) 
@@ -177,8 +163,7 @@ $.ajax({
 	{
 		nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[0];		
 	}
-	console.log("Done");	
-	alert("Done");
+	console.log("Done");
 	function percentageBarColour(percentage) {
 	    var red = 0,
             green = 0;
