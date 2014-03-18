@@ -10,16 +10,13 @@ var nearestPC;
 //status 0 is closed, status 1 is almost full, status 2 is available
 
 function freePC() {
-alert("Free PC");
 //Read JSON Feed
 console.log("Fetch JSON");
-alert("Fetch JSON");
 $.ajax({
     url: 'http://proj.scottwalton.co.uk/json_proxy/oa.php',
     dataType: 'json',
     success: function( oa ) {
 	console.log("Got JSON");
-	alert("Got JSON");
 	//Create Object for each OA
 	var Library = {
                 name: 'Library',
@@ -70,6 +67,7 @@ $.ajax({
 	  {
 	  if (navigator.geolocation)
 		{
+		alert("Geolocation");
 		navigator.geolocation.getCurrentPosition(showMyPosition);
 		}
 	  else{alert("Geolocation is not supported by this browser.");}
@@ -79,7 +77,6 @@ $.ajax({
 	function showMyPosition(myPosition)
 	{
 	  console.log("Show Position");
-	  alert("Show Position");
 	  myLat = myPosition.coords.latitude;
 	  myLong = myPosition.coords.longitude;
 	  myPos = [myPosition.coords.latitude,myPosition.coords.longitude];
@@ -243,7 +240,6 @@ $.ajax({
 	 distanceToOA(); 
 	}
 	console.log("Get Location");
-	alert("Get Location");
 	myLocation();
 	},
 	//If JSON Feed doesn't load run this instead to use dummy data
