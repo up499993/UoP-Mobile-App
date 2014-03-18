@@ -162,7 +162,7 @@ $.ajax({
 	}
 	else
 	{
-		nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[1];		
+		nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[0];		
 	}
 	console.log("Done");	
 	function percentageBarColour(percentage) {
@@ -353,10 +353,13 @@ $.ajax({
 	console.log("Any Free PCs?");
 	if (distToOA.sort(function(a, b){return a.dist - b.dist;})[0].pcs.available < 1) 
 	{
+		console.log (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available);
 		if (distToOA.sort(function(a, b){return a.dist - b.dist;})[1].pcs.available < 1) 
 		{
+			console.log (distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available);
 			if (distToOA.sort(function(a, b){return a.dist - b.dist;})[2].pcs.available < 1) 
 			{
+				console.log (distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available);
 				if (distToOA.sort(function(a, b){return a.dist - b.dist;})[3].pcs.available < 1) 
 				{
 					console.log("No Free PCs");
@@ -364,21 +367,25 @@ $.ajax({
 				else
 				{
 					nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[3];
+					console.log(nearestPC);
 				}
 			}
 			else
 			{
 				nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[2];
+				console.log(nearestPC);
 			}
 		}
 		else
 		{
 			nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[1];
+			console.log(nearestPC);
 		}
 	}
 	else
 	{
-		nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[1];		
+		nearestPC = distToOA.sort(function(a, b){return a.dist - b.dist;})[0];
+		console.log(nearestPC);
 	}
 	console.log("Done");	
 	function percentageBarColour(percentage) {
