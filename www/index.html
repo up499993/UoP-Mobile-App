@@ -71,11 +71,14 @@
     // Cordova is ready
     //
     function onDeviceReady() {
-         //alert('Device is ready!');
+         alert('Device is ready!');
          //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
          //iabRef.addEventListener('loadstart', iabLoadStart);
          //iabRef.addEventListener('loadstop', iabLoadStop);
          //iabRef.addEventListener('exit', iabClose);
+		 initialize();
+		 getLocation();
+		 freePC();
     }
 
     </script>
@@ -104,7 +107,7 @@
 						<a href="#cwk" title="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
 					</div>
 					<div class="ui-block-a homeIcon">
-						<a href="#maps" title="Interactive Maps" onclick="window.setTimeout(initialize, 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
+						<a href="#maps" title="Interactive Maps" onclick="window.setTimeout(initialize(), 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
 					</div>					
 					<div class="ui-block-b homeIcon">
 						<a href="#bus" title="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
