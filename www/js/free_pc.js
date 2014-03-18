@@ -77,6 +77,7 @@ $.ajax({
 	function showMyPosition(myPosition)
 	{
 	  console.log("Show Position");
+	  alert("Show position");
 	  myLat = myPosition.coords.latitude;
 	  myLong = myPosition.coords.longitude;
 	  myPos = [myPosition.coords.latitude,myPosition.coords.longitude];
