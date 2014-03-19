@@ -52,7 +52,7 @@
 	<gap:plugin name="org.apache.cordova.geolocation" />
 	<gap:plugin name="nl.x-services.plugins.calendar" />
 	<gap:plugin name="org.apache.cordova.inappbrowser"/>
-	<gap:plugin name="com.simplec.plugins.localnotification" />
+	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 	<!-- Define Platforms -->
 	<gap:platform name="android" />
 	<gap:platform name="winphone" />

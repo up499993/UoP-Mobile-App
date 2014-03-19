@@ -1,19 +1,23 @@
 function cwkRemind()
 {
-alert("Manual01"); 
-var d = new Date(); 
-d = d.getTime() + 60*1000; //60 seconds from now 
-d = new Date(d); 
+var now                  = new Date().getTime(),
+    _60_seconds_from_now = new Date(now + 60*1000);
 
-alert("Manual02"); 
-window.plugins.localNotification.add({ 
-date: d, // your set date object 
-message: 'Hello world!', 
-repeat: 'weekly', // will fire every week on this day 
-badge: 0, 
-foreground:'foreground', 
-background:'background' 
-}); 
+window.plugin.notification.local.add({
+    id:         1, // is converted to a string
+    title:      'Reminder',
+    message:    'Dont forget to buy some flowers.',
+    repeat:     'weekly',
+    date:       _60_seconds_from_now,
+    foreground: 'foreground',
+    background: 'background'
+});
 
-alert("Manual03"); 
+function foreground (id) {
+    console.log('I WAS RUNNING ID='+id)
+}
+
+function background (id) {
+    console.log('I WAS IN THE BACKGROUND ID='+id)
+}
 }
