@@ -1,10 +1,11 @@
 function cwkRemind()
 {
-var cwkNotifications = [];
-cwkNotifications[0] = prompt("New member name?");
-localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
+//var cwkNotifications = [];
+//cwkNotifications[0] = message;
+//localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 //...
+alert("Reading");
 var cwkNotificationsStorred = JSON.parse(localStorage["cwkNotifications"]);
 
 alert(cwkNotificationsStorred);
@@ -28,7 +29,10 @@ var cwkModule = $('#cwkModule').val();
 var cwkDesc = $('#cwkDesc').val();
 
 var message = cwkModule + ": " + cwkDesc;
-alert(message);
+
+var cwkNotifications = [];
+cwkNotifications[0] = message;
+localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
@@ -42,9 +46,9 @@ window.plugin.notification.local.add({
     foreground: 'foreground',
     background: 'background'
 
-cwkRemind();
-});
 
+});
+cwkRemind();
 function foreground (id) {
     console.log('I WAS RUNNING ID='+id)
 }
