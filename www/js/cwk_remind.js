@@ -1,15 +1,21 @@
 function cwkRemind()
 {
-var now = new Date();
-          now.setSeconds(now.getSeconds() + 90);
+window.plugins.localNotification.add({
+    fireDate        : Math.round(new Date().getTime()/1000 + 5),
+    alertBody       : "This is a local notification.",
+    action          : "View",
+    repeatInterval  : "daily",
+    soundName       : "beep.caf",
+    badge           : 0,
+    notificationId  : 123,
+    foreground      : function(notificationId){ 
+        alert("Hello World! This alert was triggered by notification " + notificationId); 
+    },
+    background  : function(notificationId){
+        alert("Hello World! This alert was triggered by notification " + notificationId);
+    }           
+});
 
-          plugins.localNotification.add({
-            date : now,
-            message : "Phonegap - Boooyyyaaaaah!\r\nUpyoass!",
-            ticker : "Yeeeaaaaahhhh!!!",
-            repeatDaily : false,
-            id : 4
-          });
 		  /*
 
 
