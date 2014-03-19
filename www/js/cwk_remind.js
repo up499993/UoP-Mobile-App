@@ -14,6 +14,11 @@ window.plugin.notification.local.cancel(id);
 
 function cwkRemindAdd ()
 {
+var cwkModule = $('#cwkModule').val();
+var cwkDesc = $('#cwkDesc').val();
+
+var message = cwkModule + ": " + cwkDesc;
+alert(message);
 
 var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
@@ -21,7 +26,7 @@ var now                  = new Date().getTime(),
 window.plugin.notification.local.add({
     id:         1, // is converted to a string
     title:      'Reminder',
-    message:    'Dont forget to buy some flowers.',
+    message:    message,
     repeat:     'weekly',
     date:       _05_seconds_from_now,
     foreground: 'foreground',
