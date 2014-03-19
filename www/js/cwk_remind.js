@@ -100,4 +100,26 @@ alert("Write to Local Storage");
 cwkNotifications.push(addToArray);
 console.log(cwkNotifications);
 localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
+
+var now                  = new Date().getTime(),
+    _05_seconds_from_now = new Date(now + 05*1000);
+
+window.plugin.notification.local.add({
+    id:         arrayPos,
+    title:      'CWK Reminder',
+    message:    message,
+    date:       _05_seconds_from_now,
+    foreground: 'foreground',
+    background: 'background'
+
+
+});
+cwkRemind();
+function foreground (id) {
+    console.log('I WAS RUNNING ID='+id)
+}
+
+function background (id) {
+    console.log('I WAS IN THE BACKGROUND ID='+id)
+}
 }
