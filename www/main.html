@@ -1908,12 +1908,28 @@
 				<button onclick="cwkRemindCancel();">Remove</button>
 				<button onclick="cwkRemindCancelAll();">Remove All</button>
 				
-				<div data-role="fieldcontain" id="cwkInputs">
-					<label for="cwkModule">Module:</label>
-					<input type="text" name="cwkModule" id="cwkModule" value=""  />
-					<label for="cwkDesc">Description:</label>
-					<input type="text" name="cwkDesc" id="cwkDesc" value=""  />
-				</div>	
+				<button onclick="test();">TEST</button>
+				
+				<div>
+				<h3>Current Reminders:</h3>
+				<div id="cwkReminders">
+				</div>
+				</div>
+				<div>
+				<script type="text/JavaScript">
+				loadCwkReminders();
+				</script>
+				<h3>Add New Reminder:</h3>
+				
+					<div data-role="fieldcontain" id="cwkInputs">
+						<label for="cwkModule">Module:</label>
+						<input type="text" name="cwkModule" id="cwkModule" value=""  />
+						<label for="cwkDesc">Description:</label>
+						<input type="text" name="cwkDesc" id="cwkDesc" value=""  />
+						<label for="cwkNotes">Notes:</label>
+						<input type="text" name="cwkNotes" id="cwkNotes" value=""  />
+					</div>	
+				</div>
 			</div>
 			<!-- /content -->
 			
