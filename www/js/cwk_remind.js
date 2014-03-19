@@ -105,7 +105,7 @@ var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
 
 window.plugin.notification.local.add({
-    id:         arrayPos,
+    id:         1,
     title:      'CWK Reminder',
     message:    message,
     date:       _05_seconds_from_now,
