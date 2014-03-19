@@ -101,6 +101,8 @@ cwkNotifications.push(addToArray);
 console.log(cwkNotifications);
 localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
+loadCwkRminders();
+
 var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
 
