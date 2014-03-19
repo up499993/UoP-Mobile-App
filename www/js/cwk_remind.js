@@ -6,6 +6,8 @@ localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 //...
 var cwkNotificationsStorred = JSON.parse(localStorage["cwkNotifications"]);
+
+alert(cwkNotificationsStorred);
 }
 
 function cwkRemindCancelAll()
