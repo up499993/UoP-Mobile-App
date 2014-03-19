@@ -1,5 +1,11 @@
 function cwkRemind()
 {
+var cwkNotifications = [];
+cwkNotifications[0] = prompt("New member name?");
+localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
+
+//...
+var cwkNotificationsStorred = JSON.parse(localStorage["cwkNotifications"]);
 }
 
 function cwkRemindCancelAll()
@@ -33,6 +39,8 @@ window.plugin.notification.local.add({
     date:       _05_seconds_from_now,
     foreground: 'foreground',
     background: 'background'
+
+cwkRemind();
 });
 
 function foreground (id) {
