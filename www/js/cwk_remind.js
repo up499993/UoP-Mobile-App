@@ -5,11 +5,13 @@ function cwkRemind()
 function cwkRemindCancelAll()
 {
 window.plugin.notification.local.cancelAll();
+alert("Removed all Notifications");
 }
 
 function cwkRemindCancel(id)
 {
 window.plugin.notification.local.cancel(id);
+alert("Removed Notification");
 }
 
 function cwkRemindAdd ()
