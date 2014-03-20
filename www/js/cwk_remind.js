@@ -10,7 +10,7 @@ if (typeof cwkNotifications === 'undefined') {
 alert("Yes");
 
 // Check to see if localStorage key exists
-Alert("LocalStorage key?");
+alert("LocalStorage key?");
 if (localStorage.getItem("cwkNotifications") === null) {
 	alert("No");
   localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
@@ -87,7 +87,7 @@ function background (id) {
 function test()
 {
 alert("Local Storage Contains " + cwkNotifications.length + " items");
-}
+
 var cwkModule = $('#cwkModule').val();
 var cwkDesc = $('#cwkDesc').val();
 var cwkNotes = $('#cwkNotes').val();
