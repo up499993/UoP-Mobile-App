@@ -1,0 +1,176 @@
+BEGIN:VCALENDAR
+PRODID:-//UoP timetables//iCal4j 1.0//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-CALNAME:UoP Timetable
+X-PUBLISHED-TTL:PT1M
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140313T100000
+DTEND;TZID=Europe/London:20140313T120000
+SUMMARY:Advanced Networks
+DESCRIPTION:\nWeek Number: 33\nBuilding: Lion Gate\nRoom:  1.22\nUnit ref
+ :  U21279\nUnit:  Advanced Networks\nType:  Sem\nGroup:  n/a\nLecturer: 
+ M.A.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144313Z-Advanced Networks@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140314T120000
+DTEND;TZID=Europe/London:20140314T130000
+SUMMARY:Advanced Database Concepts
+DESCRIPTION:\nWeek Number: 33\nBuilding: Buckingham\nRoom:  0.20\nUnit re
+ f:  U21278\nUnit:  Advanced Database Concepts\nType:  Lect\nGroup:  n/a\
+ nLecturer: P.R.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144314Z-Advanced Database Concepts@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140318T110000
+DTEND;TZID=Europe/London:20140318T130000
+SUMMARY:Human Computer Interaction Design
+DESCRIPTION:\nWeek Number: 34\nBuilding: St. Andrew's Court\nRoom:  SA4.1
+ 8\nUnit ref:  U21285\nUnit:  Human Computer Interaction Design\nType:  L
+ ect\nGroup:  n/a\nLecturer: J.C.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144315Z-Human Computer Interaction Design@ical-01.iso.port.a
+ c.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140318T140000
+DTEND;TZID=Europe/London:20140318T150000
+SUMMARY:Final Year Engineering Project
+DESCRIPTION:\nWeek Number: 34\nBuilding: Park\nRoom:  2.23\nUnit ref:  U2
+ 1287\nUnit:  Final Year Engineering Project\nType:  Lect\nGroup:  n/a\nL
+ ecturer: P.H.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144316Z-Final Year Engineering Project@ical-01.iso.port.ac.u
+ k
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140320T100000
+DTEND;TZID=Europe/London:20140320T120000
+SUMMARY:Advanced Networks
+DESCRIPTION:\nWeek Number: 34\nBuilding: Lion Gate\nRoom:  1.22\nUnit ref
+ :  U21279\nUnit:  Advanced Networks\nType:  Sem\nGroup:  n/a\nLecturer: 
+ M.A.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144317Z-Advanced Networks@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140321T100000
+DTEND;TZID=Europe/London:20140321T120000
+SUMMARY:Web Research
+DESCRIPTION:\nWeek Number: 34\nBuilding: Buckingham\nRoom:  0.19\nUnit re
+ f:  U21277\nUnit:  Web Research\nType:  Pract\nGroup:  WEBRES G1\nLectur
+ er: R.B.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144318Z-Web Research@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140321T120000
+DTEND;TZID=Europe/London:20140321T130000
+SUMMARY:Advanced Database Concepts
+DESCRIPTION:\nWeek Number: 34\nBuilding: Buckingham\nRoom:  0.20\nUnit re
+ f:  U21278\nUnit:  Advanced Database Concepts\nType:  Lect\nGroup:  n/a\
+ nLecturer: P.R.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144319Z-Advanced Database Concepts@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140325T110000
+DTEND;TZID=Europe/London:20140325T130000
+SUMMARY:Human Computer Interaction Design
+DESCRIPTION:\nWeek Number: 35\nBuilding: Lion Gate\nRoom:  0.14b\nUnit re
+ f:  U21285\nUnit:  Human Computer Interaction Design\nType:  Pract\nGrou
+ p:  n/a\nLecturer: K.D.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144320Z-Human Computer Interaction Design@ical-01.iso.port.a
+ c.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140325T140000
+DTEND;TZID=Europe/London:20140325T150000
+SUMMARY:Final Year Engineering Project
+DESCRIPTION:\nWeek Number: 35\nBuilding: Park\nRoom:  2.23\nUnit ref:  U2
+ 1287\nUnit:  Final Year Engineering Project\nType:  Lect\nGroup:  n/a\nL
+ ecturer: P.H.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144321Z-Final Year Engineering Project@ical-01.iso.port.ac.u
+ k
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140326T110000
+DTEND;TZID=Europe/London:20140326T120000
+SUMMARY:Advanced Database Concepts
+DESCRIPTION:\nWeek Number: 35\nBuilding: Buckingham\nRoom:  0.07\nUnit re
+ f:  U21278\nUnit:  Advanced Database Concepts\nType:  Pract\nGroup:  ADC
+ ON G2\nLecturer: P.R.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144322Z-Advanced Database Concepts@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140327T100000
+DTEND;TZID=Europe/London:20140327T120000
+SUMMARY:Advanced Networks
+DESCRIPTION:\nWeek Number: 35\nBuilding: Lion Gate\nRoom:  1.22\nUnit ref
+ :  U21279\nUnit:  Advanced Networks\nType:  Sem\nGroup:  n/a\nLecturer: 
+ M.A.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144323Z-Advanced Networks@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140328T100000
+DTEND;TZID=Europe/London:20140328T120000
+SUMMARY:Web Research
+DESCRIPTION:\nWeek Number: 35\nBuilding: Buckingham\nRoom:  0.19\nUnit re
+ f:  U21277\nUnit:  Web Research\nType:  Pract\nGroup:  WEBRES G1\nLectur
+ er: R.B.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144324Z-Web Research@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140328T120000
+DTEND;TZID=Europe/London:20140328T130000
+SUMMARY:Advanced Database Concepts
+DESCRIPTION:\nWeek Number: 35\nBuilding: Buckingham\nRoom:  0.20\nUnit re
+ f:  U21278\nUnit:  Advanced Database Concepts\nType:  Lect\nGroup:  n/a\
+ nLecturer: P.R.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144325Z-Advanced Database Concepts@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140422T140000
+DTEND;TZID=Europe/London:20140422T160000
+SUMMARY:Advanced Networks
+DESCRIPTION:\nWeek Number: 39\nBuilding: Anglesea\nRoom:  2.08\nUnit ref:
+   U21279\nUnit:  Advanced Networks\nType:  Revision\nGroup:  n/a\nLectur
+ er: M.A.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144326Z-Advanced Networks@ical-01.iso.port.ac.uk
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20140320T033458Z
+DTSTART;TZID=Europe/London:20140429T140000
+DTEND;TZID=Europe/London:20140429T160000
+SUMMARY:Advanced Networks
+DESCRIPTION:\nWeek Number: 40\nBuilding: Anglesea\nRoom:  2.08\nUnit ref:
+   U21279\nUnit:  Advanced Networks\nType:  Revision\nGroup:  n/a\nLectur
+ er: M.A.
+LAST-MODIFIED:20140320T033458Z
+UID:20140321T144327Z-Advanced Networks@ical-01.iso.port.ac.uk
+END:VEVENT
+END:VCALENDAR
