@@ -97,3 +97,31 @@ font-weight:bold;
 {
 	width: 50%;
 }
+
+
+.titleCell {
+	background-color: #BBBBBB; 
+	color: #000000;
+	font-size: 1.2em;
+	font-weight: bold;
+	border-style: solid;
+	border-width: .2em;
+	border-color: white;
+}
+.subtitle th {
+	background-color: #DDDDDD;
+	font-weight: bold;
+	color: #CC5E2F;
+}
+.uopTable.timetable td {
+	background-color: #EEEEEE;
+}
+.uopTable.timetable td, .uopTable.timetable th {
+	border-style: solid;
+	border-width: .1em;
+	border-color: white;
+	padding-top: .3em;
+	padding-bottom: 0;
+	padding: .3em;
+}
+
