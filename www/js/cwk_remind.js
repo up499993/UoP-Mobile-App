@@ -4,7 +4,7 @@ document.querySelector('#cwkReminders').innerHTML = "";
 // Check to see if variable exists and create if necessary
 if (typeof cwkNotifications === 'undefined') {
     // variable is undefined
-	var cwkNotifications = [];
+	var cwkNotifications = ['0'];
 }
 
 // Check to see if localStorage key exists
@@ -14,14 +14,14 @@ if (localStorage.getItem("cwkNotifications") === null) {
 }
 else
 {
-var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
-if (cwkNotifications.length === 0)
+console.log(JSON.parse(localStorage["cwkNotifications"]));
+if (cwkNotifications.length <= 1)
 {
 document.querySelector('#cwkReminders').innerHTML = "There are no Coursework Reminders to Display";
 }
 else
 {
-for (var i = 0; i < cwkNotifications.length; i++) {
+for (var i = 1; i < cwkNotifications.length; i++) {
 	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><p><span class='bold'>Due:</span> " + cwkNotifications[i].date + " " + cwkNotifications[i].time + "</p><button cless='ui-btn ui-shadow ui-corner-all' onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
    
 }
