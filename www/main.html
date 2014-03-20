@@ -44,6 +44,9 @@
 		<script type="text/javascript" src="Calendar.js"></script>
 		<script type="text/javascript" src="js/cwk_remind.js"></script>
 		
+		<!-- Link Timetable Scripts -->
+		<script type="text/javascript" src="js/timetable.js"></script>
+		
 		<!-- Resize Elements -->
 		<script src="js/resize.js"> </script>
 		
@@ -115,7 +118,7 @@
 						<a href="#bus" title="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
 					</div>
 					<div class="ui-block-c homeIcon">
-						<a href="#timetable" title="My Timetable"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
+						<a href="#timetable" title="My Timetable" onclick="window.setTimeout(timetable(), 500);"><i class="fa fa-calendar fa-3x"></i><br />My Timetable</a>
 					</div>
 					<div class="ui-block-a homeIcon">
 						<a href="#directory" title="Uni Directory"><i class="fa fa-phone-square fa-3x"></i><br />Uni Directory</a>
@@ -1991,6 +1994,7 @@
 			<!-- Content    -->
 			<div data-role="content">
 				<h1 class="pg-title">Personalised Timetable</h1>
+				<button onclick="timetable();">Timetable</button>
 			</div>
 			<!-- /content -->
 			
