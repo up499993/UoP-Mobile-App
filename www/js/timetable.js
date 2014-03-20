@@ -1,7 +1,28 @@
+function ttAdd()
+{
+var saveIcal = $('#ttLink').val();
+localStorage["icalLink"] = saveIcal;
+timetable();
+}
+
 function timetable()
 {
+document.querySelector('#persTimeTable').innerHTML = "";
+// Check to see if variable exists and create if necessary
+if (typeof icalLink === 'undefined') {
+    // variable is undefined
+	var icalLink = [];
+}
+console.log("iCal: " + localStorage["icalLink"]);
+// Check to see if localStorage key exists
+if (localStorage.getItem("icalLink") === null) {
+document.querySelector('#persTimeTable').innerHTML = "<div data-role='fieldcontain' id='ttInputs'><p>You have not set up you're personalised timetable. Please visit <a href='https://students.myport.ac.uk/students/timetable.action?hd=myport.ac.uk' title='MyPort Timetable'>MyPort Timetable</a> and click on (Subscribe to your Timetable). There you will find your personal iCal link. Enter that link into this box and press Save.</p><label for='ttLink'>Timetable Link:</label><input type='text' name='ttLink' id='ttLink' value=''  /><label for='ttAdd'> </label><button name='ttAdd' id='ttAdd' onclick='ttAdd();'>Save</button></div>";
+}
+else
+{
+var icalLink = 'http://proj.scottwalton.co.uk/json_proxy/ical.php?ics=http://timetable.myport.ac.uk/57C6D47B8C6C9E4F.ics';
 $.ajax({
-    url: 'http://proj.scottwalton.co.uk/json_proxy/ical.php?ics=http://timetable.myport.ac.uk/57C6D47B8C6C9E4F.ics',
+    url: icalLink,
     dataType: 'json',
     success: function( ical ) {
 	console.log("Got JSON");
@@ -81,9 +102,14 @@ $.ajax({
 				return 'th';
 			}
 		}
-
+		var buildingShort;
+		
+		if (ical[i].BUILDING == "Anglesea"){buildingShort="A"}else if (ical[i].BUILDING == "Buckingham"){buildingShort="BK"}else if (ical[i].BUILDING == "Burnaby"){buildingShort="BB"}else if (ical[i].BUILDING == "Burnaby Terrace"){buildingShort = "BT"}else if (ical[i].BUILDING == "Dennis Sciama"){buildingShort="DS"}else if (ical[i].BUILDING == "Eldon"){buildingShort = "EL"}else if (ical[i].BUILDING == "Eldon West"){buildingShort="EL"}else if (ical[i].BUILDING == "Hampshire Terrace"){buildingShort = "HT"}else if (ical[i].BUILDING == "James Watson West"){buildingShort="JWH"}else if (ical[i].BUILDING == "King Henry"){buildingShort="KH"}else if (ical[i].BUILDING == "Lion Gate"){buildingShort="LG"}else if (ical[i].BUILDING == "Liongate"){buildingShort="LG"}else if (ical[i].BUILDING == "Mildam"){buildingShort="ML"}else if (ical[i].BUILDING == "Park"){buildingShort="PK"}else if (ical[i].BUILDING == "Portland"){buildingShort="PO"}else if (ical[i].BUILDING == "Purple Door"){buildingShort="PD"}else if (ical[i].BUILDING == "Ravelin House"){buildingShort="RV"}else if (ical[i].BUILDING == "Richmond"){buildingShort="RB"}else if (ical[i].BUILDING == "Rotunda"){ buildingShort="RO"}else if (ical[i].BUILDING == "Spinnaker"){buildingShort="SB"}else if (ical[i].BUILDING == "St. Andrew's Court"){buildingShort="SA"}else if (ical[i].BUILDING == "St. George's"){buildingShort="SG"}else if (ical[i].BUILDING == "St. Michael's"){buildingShort="SM"}else if (ical[i].BUILDING == "Union Building"){ buildingShort="UB"}else if (ical[i].BUILDING == "University Library"){ buildingShort="UL"}else if (ical[i].BUILDING == "William Beatty"){ buildingShort="WBB"}else if (ical[i].BUILDING == "Wiltshire"){buildingShort="WB"}else {buildingShort = ""};
+		
+		var grp;
+		if (ical[i].GROUP === "n\/a"){grp=""}else{grp=ical[i].GROUP};
 		//add event to table
-		document.querySelector('#persTimeTable tbody').innerHTML = document.querySelector('#persTimeTable').innerHTML + "<tr> <td>" +  weekday[dateStart.getDay()] + " " +  dateStart.getDay() + get_nth_suffix(dateStart.getDay()) + " " +  month[dateStart.getMonth()]+ "</td> <td>" + ical[i].UNIT + "</td> <td nowrap='nowrap'>" + start_hr + ":" + start_mi + " - " + end_hr + ":" + end_mi + "</td> <td>" + ical[i].GROUP + "</td> <td>" + ical[i].LECTURER + "</td> <td>" + ical[i].TYPE + "</td> <td>" + ical[i].ROOM + "</td> </tr>";
+		document.querySelector('#persTimeTable tbody').innerHTML = document.querySelector('#persTimeTable').innerHTML + "<tr> <td>" +  weekday[dateStart.getDay()] + " " +  dateStart.getDay() + get_nth_suffix(dateStart.getDay()) + " " +  month[dateStart.getMonth()]+ "</td> <td>" + ical[i].UNIT + "</td> <td nowrap='nowrap'>" + start_hr + ":" + start_mi + " - " + end_hr + ":" + end_mi + "</td> <td>" + grp + "</td> <td>" + ical[i].LECTURER + "</td> <td>" + ical[i].TYPE + "</td> <td>" + buildingShort + ical[i].ROOM + "</td> </tr>";
 		
 	}
 	
@@ -92,3 +118,4 @@ $.ajax({
 	});
 }
 
+}
