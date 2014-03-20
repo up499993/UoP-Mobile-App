@@ -124,4 +124,7 @@ font-weight:bold;
 	padding-bottom: 0;
 	padding: .3em;
 }
-
+button
+{
+	padding:2;
+}
