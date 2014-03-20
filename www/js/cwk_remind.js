@@ -31,7 +31,7 @@ else
 {
 alert("Start loop");
 for (var i = 0; i < cwkNotifications.length; i++) {
-	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><button cless='ui-btn ui-shadow ui-corner-all' onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
+	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><p>Due: " + cwkNotifications[i].when + "</p><button cless='ui-btn ui-shadow ui-corner-all' onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
    
 }
 }
@@ -71,13 +71,19 @@ var cwkNotes = $('#cwkNotes').val();
 var message = cwkModule + ": " + cwkDesc + ". " + cwkNotes;
 var arrayPos = cwkNotifications.length;
 alert("New Position: " + arrayPos);
+
+var cwkDate = $('#cwkDate').val();
+var cwkTime = $('#cwkTime').val();
+var cwkDateTime = new Date(cwkDate+' '+cwkTime);
+alert("When? " + cwkDateTime);
 //var cwkNotifications = [];
 var addToArray = {
                 notificationNo: arrayPos,
                 message: message,
 				module: cwkModule,
 				desc: cwkDesc,
-				notes: cwkNotes
+				notes: cwkNotes,
+				when: cwkDateTime
             };
 alert("Write to Local Storage");
 cwkNotifications.push(addToArray);
@@ -86,18 +92,12 @@ localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 loadCwkReminders();
 
-var now                  = new Date().getTime(),
-    _05_seconds_from_now = new Date(now + 05*1000);
-
-alert("now: " + now);
-alert("5sec: " + _05_seconds_from_now);
-
 window.plugin.notification.local.add({
     id:         arrayPos,
     title:      'CWK Reminder',
     message:    message,
 	repeat:		1,
-    date:       _05_seconds_from_now,
+    date:       cwkDateTime,
     foreground: 'foreground',
     background: 'background'
 
@@ -115,6 +115,17 @@ function background (id) {
 //  T E S T I N G
 function test()
 {
+var now                  = new Date().getTime(),
+    _05_seconds_from_now = new Date(now + 05*1000);
 
+console.log("now: " + now);
+console.log("5sec: " + _05_seconds_from_now);
+
+var cwkDate = $('#cwkDate').val();
+var cwkTime = $('#cwkTime').val();
+console.log("cwkDate: " + cwkDate);
+console.log("cwkTime: " + cwkTime);
+var cwkDateTime = new Date(cwkDate+' '+cwkTime);
+console.log("cwkDateTime: " + cwkDateTime);
 
 }
