@@ -1,5 +1,6 @@
 function loadCwkReminders()
 {
+document.querySelector('#cwkReminders').innerHTML = "";
 // Check to see if variable exists and create if necessary
 alert("Is cwkNotifications variable defined?");
 if (typeof cwkNotifications === 'undefined') {
@@ -24,12 +25,13 @@ var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
 alert ("Length " + cwkNotifications.length);
 if (cwkNotifications.length === 0)
 {
+document.querySelector('#cwkReminders').innerHTML = "There are no Coursework Reminders to Display";
 }
 else
 {
 alert("Start loop");
 for (var i = 0; i < cwkNotifications.length; i++) {
-	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><button onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
+	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><button cless='ui-btn ui-shadow ui-corner-all' onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
    
 }
 }
@@ -86,6 +88,7 @@ function background (id) {
 //  T E S T I N G
 function test()
 {
+var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
 alert("Local Storage Contains " + cwkNotifications.length + " items");
 
 var cwkModule = $('#cwkModule').val();
@@ -109,7 +112,7 @@ cwkNotifications.push(addToArray);
 console.log(cwkNotifications);
 localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
-loadCwkRminders();
+loadCwkReminders();
 
 var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
@@ -124,7 +127,6 @@ window.plugin.notification.local.add({
 
 
 });
-cwkRemind();
 function foreground (id) {
     console.log('I WAS RUNNING ID='+id)
 }
