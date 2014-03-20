@@ -121,6 +121,7 @@ window.plugin.notification.local.add({
     id:         1,
     title:      'CWK Reminder',
     message:    message,
+	repeat:		1,
     date:       _05_seconds_from_now,
     foreground: 'foreground',
     background: 'background'
