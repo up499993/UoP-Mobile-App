@@ -46,8 +46,18 @@ alert("Removed all Notifications");
 
 function cwkRemindCancel(id)
 {
+console.log("id: " + id);
+console.log("localstorage: " + localStorage.cwkNotifications);
+var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
+console.log("JSON parse: " + cwkNotifications);
+console.log("Alert " + id + ": " + cwkNotifications[id]);
+cwkNotifications.splice(id, 1);
+localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
+console.log("localstorage: " + localStorage.cwkNotifications);
+
 window.plugin.notification.local.cancel(id);
 alert("Removed Reminder");
+
 }
 
 function cwkRemindAdd ()
@@ -106,7 +116,6 @@ var addToArray = {
 				desc: cwkDesc,
 				notes: cwkNotes
             };
-//var addToArray = [arrayPos, message];
 alert("Write to Local Storage");
 cwkNotifications.push(addToArray);
 console.log(cwkNotifications);
@@ -116,6 +125,9 @@ loadCwkReminders();
 
 var now                  = new Date().getTime(),
     _05_seconds_from_now = new Date(now + 05*1000);
+
+alert("now: " + now);
+alert("5sec: " + _05_seconds_from_now);
 
 window.plugin.notification.local.add({
     id:         arrayPos,
@@ -135,4 +147,5 @@ function foreground (id) {
 function background (id) {
     console.log('I WAS IN THE BACKGROUND ID='+id)
 }
+
 }
