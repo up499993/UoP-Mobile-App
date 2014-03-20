@@ -1909,8 +1909,6 @@
 				<button onclick="cwkRemindCancelAll();">Remove All</button>
 				
 				<button onclick="test();">TEST</button>
-				<button onclick="loadCwkReminders();">TEST LOAD</button>
-				<button onclick="localStorage.clear(); alert('Cleared');">Clear LocalStorage </button>
 				
 				<div>
 				<h3>Current Reminders:</h3>
@@ -1924,6 +1922,8 @@
 				<h3>Add New Reminder:</h3>
 				
 					<div data-role="fieldcontain" id="cwkInputs">
+						<label for="cwkDate">Date:</label>
+						<input type="date" name="cwkDate" id="cwkDate" value="" />
 						<label for="cwkModule">Module:</label>
 						<input type="text" name="cwkModule" id="cwkModule" value=""  />
 						<label for="cwkDesc">Description:</label>
