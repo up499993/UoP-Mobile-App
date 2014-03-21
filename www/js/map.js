@@ -4,6 +4,8 @@ initialize();
 }
 
 //Globals
+
+//Define Teaching Buildings
 var a = {
                 name: 'Anglesea Building',
 				abbr: 'A',
@@ -166,17 +168,65 @@ var temp5to6 = {
                 marker: 'img/map_markers/yellow_MarkerB.png',
                 latlong: new google.maps.LatLng(50.7978911,-1.0977066)
             };
+// Define Food Outlets
 var stgeorge_coffee = {
-				name: 'St. George\'s Coffee Shop',
-				marker: 'img/map_markers/blue_MarkerCoffee.png',
-				latlong: new google.maps.LatLong(50.7916076,-1.1009676)
-			};
+	name: 'St. George\'s Coffee Shop',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7916076,-1.1009676)
+};
+var library_coffee = {
+	name: 'Library Coffee Shop',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7937997,-1.0981019)
+};
+var waterhole = {
+	name: 'The Waterhole',
+	marker: 'img/map_markers/blue_MarkerBar.png',
+	latlong: new google.maps.LatLong(50.7951025,-1.096449)
+};
+var coco = {
+	name: 'Cafe Coco',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7944753,-1.0963857)
+};
+var artscafe = {
+	name: 'Eldon Arts Cafe',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7947319,-1.0909327)
+};
+var standrew_cafe = {
+	name: 'St Andrew\'s Court Cafe',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7956584,-1.0949152)
+};
+var thirdspace = {
+	name: '3rd Space',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7951025,-1.096449)
+};
+var park_coffee = {
+	name: 'Park Coffee Shop',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7976506,-1.0942234)
+};
+var a901 = {
+	name: '901 Internet Cafe',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7977267,-1.0965045)
+};
+var hub = {
+	name: 'The Hub',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLong(50.7977,-1.0981993)
+};
 			
 
-
+//Building Arrays
 var buildings = [a, bk, bb, bt, ds, el, ht, jwh, kh, lg, ml, pk, po, pd, rv, rb, ro, sb, sa, sg, sm, ub, ul, wbb, wb, temp1to4, temp5to6];
 
 var teaching_buildings = [a, bk, bb, bt, ds, el, ht, jwh, kh, lg, ml, pk, po, pd, rv, rb, ro, sb, sa, sg, sm, ub, ul, wbb, wb, temp1to4, temp5to6];
+
+var food_outlets = [stgeorge_coffee, library_coffee, waterhole, coco, artscafe, standrew_cafe, thirdspace, park_coffee, a901];
 
 function buildingMarkers()
 {
