@@ -172,52 +172,57 @@ var temp5to6 = {
 var stgeorge_coffee = {
 	name: 'St. George\'s Coffee Shop',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7916076,-1.1009676)
+	latlong: new google.maps.LatLng(50.7916076,-1.1009676)
 };
 var library_coffee = {
 	name: 'Library Coffee Shop',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7937997,-1.0981019)
+	latlong: new google.maps.LatLng(50.7937997,-1.0981019)
 };
 var waterhole = {
 	name: 'The Waterhole',
 	marker: 'img/map_markers/blue_MarkerBar.png',
-	latlong: new google.maps.LatLong(50.7951025,-1.096449)
+	latlong: new google.maps.LatLng(50.7951025,-1.096449)
 };
 var coco = {
 	name: 'Cafe Coco',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7944753,-1.0963857)
+	latlong: new google.maps.LatLng(50.7944753,-1.0963857)
 };
 var artscafe = {
 	name: 'Eldon Arts Cafe',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7947319,-1.0909327)
+	latlong: new google.maps.LatLng(50.7947319,-1.0909327)
 };
 var standrew_cafe = {
 	name: 'St Andrew\'s Court Cafe',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7956584,-1.0949152)
+	latlong: new google.maps.LatLng(50.7956584,-1.0949152)
 };
 var thirdspace = {
 	name: '3rd Space',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7951025,-1.096449)
+	latlong: new google.maps.LatLng(50.7951025,-1.096449)
 };
 var park_coffee = {
 	name: 'Park Coffee Shop',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7976506,-1.0942234)
+	latlong: new google.maps.LatLng(50.7976506,-1.0942234)
 };
 var a901 = {
 	name: '901 Internet Cafe',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7977267,-1.0965045)
+	latlong: new google.maps.LatLng(50.7977267,-1.0965045)
 };
 var hub = {
 	name: 'The Hub',
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
-	latlong: new google.maps.LatLong(50.7977,-1.0981993)
+	latlong: new google.maps.LatLng(50.7977,-1.0981993)
+};
+var portland_coffee = {
+	name: 'Portland Coffee Shop',
+	marker: 'img/map_markers/blue_MarkerCoffee.png',
+	latlong: new google.maps.LatLng(50.7985075,-1.0993419)
 };
 			
 
