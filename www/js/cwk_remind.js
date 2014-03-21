@@ -4,7 +4,7 @@ document.querySelector('#cwkReminders').innerHTML = "";
 // Check to see if variable exists and create if necessary
 if (typeof cwkNotifications === 'undefined') {
     // variable is undefined
-	var cwkNotifications = ['0'];
+	var cwkNotifications = [];
 }
 
 // Check to see if localStorage key exists
@@ -14,14 +14,14 @@ if (localStorage.getItem("cwkNotifications") === null) {
 }
 else
 {
-console.log(JSON.parse(localStorage["cwkNotifications"]));
-if (cwkNotifications.length <= 1)
+var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
+if (cwkNotifications.length === 0)
 {
 document.querySelector('#cwkReminders').innerHTML = "There are no Coursework Reminders to Display";
 }
 else
 {
-for (var i = 1; i < cwkNotifications.length; i++) {
+for (var i = 0; i < cwkNotifications.length; i++) {
 	document.querySelector('#cwkReminders').innerHTML = document.querySelector('#cwkReminders').innerHTML + "<div id='notification" + i + "'><p class='bold'>" + cwkNotifications[i].module + "</p>" + "<p>" + cwkNotifications[i].desc + "</p>" + "<p><span class='bold'>Notes:</span> " + cwkNotifications[i].notes + "</p><p><span class='bold'>Due:</span> " + cwkNotifications[i].date + " " + cwkNotifications[i].time + "</p><button cless='ui-btn ui-shadow ui-corner-all' onClick='cwkRemindCancel(" + i + ");'>Delete</button><hr /></div>";
    
 }
@@ -35,7 +35,7 @@ var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
 cwkNotifications.splice(id, 1);
 localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
-window.plugin.notification.local.cancel(id);
+//window.plugin.notification.local.cancel(id);
 loadCwkReminders();
 }
 
@@ -71,7 +71,7 @@ localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 loadCwkReminders();
 
-window.plugin.notification.local.add({
+/*window.plugin.notification.local.add({
     id:         arrayPos,
     title:      'CWK Reminder',
     message:    message,
@@ -87,7 +87,7 @@ function foreground (id) {
 
 function background (id) {
     console.log('I WAS IN THE BACKGROUND ID='+id)
-}
+}*/
 
 document.querySelector('#cwkModule').value = "";
 document.querySelector('#cwkDesc').value = "";
