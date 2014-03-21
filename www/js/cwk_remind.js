@@ -46,7 +46,9 @@ var cwkModule = $('#cwkModule').val();
 var cwkDesc = $('#cwkDesc').val();
 var cwkNotes = $('#cwkNotes').val();
 
-var message = cwkModule + ": " + cwkDesc + ". " + cwkNotes;
+if (cwkNotes === ""){cwkNotes = "None";}
+
+var message = cwkModule + ": " + cwkDesc + ". Notes: " + cwkNotes + ". Due: " + cwkNotifications[i].date + " " + cwkNotifications[i].time;
 var arrayPos = cwkNotifications.length;
 
 var cwkDate = $('#cwkDate').val();
