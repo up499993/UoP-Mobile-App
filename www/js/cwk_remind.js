@@ -35,7 +35,7 @@ var cwkNotifications = JSON.parse(localStorage["cwkNotifications"]);
 cwkNotifications.splice(id, 1);
 localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
-//window.plugin.notification.local.cancel(id);
+window.plugin.notification.local.cancel(id);
 loadCwkReminders();
 }
 
@@ -71,7 +71,7 @@ localStorage["cwkNotifications"] = JSON.stringify(cwkNotifications);
 
 loadCwkReminders();
 
-/*window.plugin.notification.local.add({
+window.plugin.notification.local.add({
     id:         arrayPos,
     title:      'CWK Reminder',
     message:    message,
@@ -87,7 +87,7 @@ function foreground (id) {
 
 function background (id) {
     console.log('I WAS IN THE BACKGROUND ID='+id)
-}*/
+}
 
 document.querySelector('#cwkModule').value = "";
 document.querySelector('#cwkDesc').value = "";
