@@ -31,7 +31,7 @@
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		
 		<!-- Link Google Maps -->
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=true"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=true&region=GB"></script>
 		<script type="text/javascript" src="js/googlemap.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		
@@ -60,8 +60,14 @@
 			</div>
 			<!-- /header -->
 			<!-- Content    -->
-			<div data-role="content" id="map-canvas">
-			<script>initialize();</script>	
+			<div data-role="content">
+				<h1 class="pg-title">Interactive Maps</h1>
+				<div id="map-container">
+					<div id="map-canvas"></div>
+				</div>
+				<div id="map-text">
+				
+				</div>
 			</div>
 			
 			<!-- /content -->
