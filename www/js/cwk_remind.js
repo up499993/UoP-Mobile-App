@@ -49,7 +49,7 @@ var cwkDate = $('#cwkDate').val();
 var cwkTime = $('#cwkTime').val();
 if (cwkNotes === ""){cwkNotes = "None";}
 
-var message = cwkModule + ": " + cwkDesc + ". Notes: " + cwkNotes + ". Due: " + cwkDate + " " + cwkTime;
+var message = cwkModule + ": " + cwkDesc + ". Notes: " + cwkNotes + ". This is due on " + cwkDate + " at " + cwkTime;
 var arrayPos = cwkNotifications.length;
 
 
