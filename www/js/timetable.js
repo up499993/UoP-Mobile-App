@@ -40,7 +40,7 @@ $.ajax({
 	}
 	
 	//Build table
-	document.querySelector('#persTimeTable').innerHTML = "<table border='0' cellpadding='0' cellspacing='0' class='uopTable timetable' title='Events for Student to Attend'> <colgroup> <col width='11%'> <col width='39%'> <col width='10%'> <col width='10%'> <col width='10%'> <col width='10%'> <col width='10%'> </colgroup> <tbody> ";
+	document.querySelector('#persTimeTable').innerHTML = "<table border='0' cellpadding='0' cellspacing='0' class='uopTable timetable' title='Events for Student to Attend'> <colgroup> <col width='11%'> <col width='34%'> <col width='10%'> <col width='15%'> <col width='10%'> <col width='10%'> <col width='10%'> </colgroup> <tbody> ";
 	document.querySelector('#persTimeTable tbody').innerHTML = document.querySelector('#persTimeTable').innerHTML + "<tr class='subtitle'> <th>Date</th> <th>Unit</th> <th>Times</th> <th>Group</th> <th>Lecturer</th> <th>Type</th> <th>Room</th> </tr> </tbody> </table>";
 	
 	for (var i = 0; i < ical.length; i++) {
