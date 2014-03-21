@@ -10,15 +10,15 @@ function initialize() {
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-    marker = new google.maps.Marker({
-    map:map,
-    draggable:true,
-    animation: google.maps.Animation.DROP,
-    position: pos
-  });
+	var currentPosMarker = new google.maps.Marker({
+		map:map,
+		draggable:false,
+		animation: google.maps.Animation.DROP,
+		position: pos,
+		title: "You are here"
+	  });
 
       map.setCenter(pos);
     }, function() {
