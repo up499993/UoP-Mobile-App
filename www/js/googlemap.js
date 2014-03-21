@@ -19,7 +19,9 @@ function initialize() {
 		position: pos,
 		title: "You are here"
 	  });
-
+	 
+	 buildingMarkers();
+	 
       map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
