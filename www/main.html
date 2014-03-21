@@ -33,6 +33,7 @@
 		<!-- Link Google Maps -->
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=true"></script>
 		<script type="text/javascript" src="js/googlemap.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
 		
 		<!-- Link Bus Times Scripts -->
 		<script type="text/javascript" src="js/nearest_bus.js"></script>
@@ -52,41 +53,42 @@
 		
 		<script type="text/javascript" charset="utf-8">
 
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+			// Wait for Cordova to load
+			//
+			document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Global InAppBrowser reference
-    var iabRef = null;
+			// Global InAppBrowser reference
+			var iabRef = null;
 
-    function iabLoadStart(event) {
-        alert(event.type + ' - ' + event.url);
-    }
+			function iabLoadStart(event) {
+				alert(event.type + ' - ' + event.url);
+			}
 
-    function iabLoadStop(event) {
-        alert(event.type + ' - ' + event.url);
-    }
+			function iabLoadStop(event) {
+				alert(event.type + ' - ' + event.url);
+			}
 
-    function iabClose(event) {
-         alert(event.type);
-         iabRef.removeEventListener('loadstart', iabLoadStart);
-         iabRef.removeEventListener('loadstop', iabLoadStop);
-         iabRef.removeEventListener('exit', iabClose);
-    }
+			function iabClose(event) {
+				 alert(event.type);
+				 iabRef.removeEventListener('loadstart', iabLoadStart);
+				 iabRef.removeEventListener('loadstop', iabLoadStop);
+				 iabRef.removeEventListener('exit', iabClose);
+			}
 
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-         //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
-         //iabRef.addEventListener('loadstart', iabLoadStart);
-         //iabRef.addEventListener('loadstop', iabLoadStop);
-         //iabRef.addEventListener('exit', iabClose);
-		 initialize();
-		 getLocation();
-		 freePC();
-    }
+			// Cordova is ready
+			//
+			function onDeviceReady() {
+				 //iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+				 //iabRef.addEventListener('loadstart', iabLoadStart);
+				 //iabRef.addEventListener('loadstop', iabLoadStop);
+				 //iabRef.addEventListener('exit', iabClose);
+				 initialize();
+				 getLocation();
+				 freePC();
+				 timetable();
+			}
 
-    </script>
+		</script>
 		
         <title>UoP</title>
     </head>
@@ -112,7 +114,7 @@
 						<a href="#cwk" title="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
 					</div>
 					<div class="ui-block-a homeIcon">
-						<a href="#maps" title="Interactive Maps" onclick="window.setTimeout(initialize(), 500);"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
+						<a href="map.html" title="Interactive Maps"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
 					</div>					
 					<div class="ui-block-b homeIcon">
 						<a href="#bus" title="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
@@ -1950,9 +1952,9 @@
 			<!-- /header -->
 			<!-- Content    -->
 			<div data-role="content" id="map-canvas">
-				
+			<script>initialize();</script>	
 			</div>
-			<script>initialize();</script>
+			
 			<!-- /content -->
 			
 		</div>
@@ -2034,24 +2036,6 @@
 			<!-- /content -->
 			
 		</div>
-		<!-- /page -->
-		
-		<!-- Start of Library App Screen -->
-		<div data-role="page" id="library">
-			<!-- Header -->
-			<div data-role="header">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" title="Home">Home</a>
-				<h1>UoP:App</h1>
-			</div>
-			<!-- /header -->
-			<!-- Content    -->
-			<div data-role="content">
-				<h1 class="pg-title">University Library</h1>
-			</div>
-			<!-- /content -->
-			
-		</div>
-		<!-- /page -->
-       
+		<!-- /page -->      
     </body>
 </html>
