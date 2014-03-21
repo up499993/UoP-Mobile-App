@@ -45,14 +45,14 @@ function cwkRemindAdd ()
 var cwkModule = $('#cwkModule').val();
 var cwkDesc = $('#cwkDesc').val();
 var cwkNotes = $('#cwkNotes').val();
-
-if (cwkNotes === ""){cwkNotes = "None";}
-
-var message = cwkModule + ": " + cwkDesc + ". Notes: " + cwkNotes + ". Due: " + cwkNotifications[i].date + " " + cwkNotifications[i].time;
-var arrayPos = cwkNotifications.length;
-
 var cwkDate = $('#cwkDate').val();
 var cwkTime = $('#cwkTime').val();
+if (cwkNotes === ""){cwkNotes = "None";}
+
+var message = cwkModule + ": " + cwkDesc + ". Notes: " + cwkNotes + ". Due: " + cwkDate + " " + cwkTime;
+var arrayPos = cwkNotifications.length;
+
+
 var cwkDateTime = new Date(cwkDate+' '+cwkTime);
 
 var month = cwkDateTime.getMonth()+1;
