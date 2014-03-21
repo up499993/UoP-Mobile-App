@@ -224,7 +224,7 @@ var portland_coffee = {
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
 	latlong: new google.maps.LatLng(50.7985075,-1.0993419)
 };
-			
+// Define Open Access Areas			
 
 //Building Arrays
 var buildings = [a, bk, bb, bt, ds, el, ht, jwh, kh, lg, ml, pk, po, pd, rv, rb, ro, sb, sa, sg, sm, ub, ul, wbb, wb, temp1to4, temp5to6];
