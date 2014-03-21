@@ -98,7 +98,12 @@ font-weight:bold;
 	width: 50%;
 }
 
-
+#persTimeTable
+{
+	width:75%; 
+	margin:0 auto;
+	
+ }
 .titleCell {
 	background-color: #BBBBBB; 
 	color: #000000;
@@ -113,6 +118,11 @@ font-weight:bold;
 	font-weight: bold;
 	color: #CC5E2F;
 }
+
+.uopTable.timetable {
+	width:100%
+}
+
 .uopTable.timetable td {
 	background-color: #EEEEEE;
 }
