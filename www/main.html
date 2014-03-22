@@ -32,7 +32,6 @@
 		
 		<!-- Link Google Maps -->
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=true&region=GB"></script>
-		<script type="text/javascript" src="js/googlemap.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		
 		<!-- Link Bus Times Scripts -->
@@ -87,7 +86,32 @@
 				 freePC();
 				 timetable();
 			}
-
+			
+			$('[data-role=page]').live('pageshow', function (event, ui) {
+			   initialize();
+				if(!navigator.geolocation) //remove the ! to use geolocation
+				  {
+					navigator.geolocation.getCurrentPosition(function(position) {
+					 var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+					 var currentPosMarker = new google.maps.Marker({
+						map:map,
+						draggable:false,
+						animation: google.maps.Animation.DROP,
+						position: pos,
+						title: "You are here"
+					  });
+					 
+					 map.setCenter(pos);
+					}, function() {
+					  handleNoGeolocation(true);
+					});
+				  } 
+				  else 
+				  {
+					// Browser doesn't support Geolocation
+					handleNoGeolocation(false);
+				  }
+			});
 		</script>
 		
         <title>UoP</title>
@@ -114,7 +138,7 @@
 						<a href="#cwk" title="Cwk Reminders"><i class="fa fa-bell fa-3x fa-align-center"></i><br />Cwk Reminders</a>
 					</div>
 					<div class="ui-block-a homeIcon">
-						<a href="map.html" title="Interactive Maps"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
+						<a href="#maps" title="Interactive Maps"><i class="fa fa-map-marker fa-3x fa-align-center"></i><br />Interactive Maps</a>
 					</div>					
 					<div class="ui-block-b homeIcon">
 						<a href="#bus" title="Bus Times" onclick="window.setTimeout(getLocation(), 500);"><i class="fa fa-clock-o fa-3x"></i><br />Bus Times</a>
@@ -1951,8 +1975,24 @@
 			</div>
 			<!-- /header -->
 			<!-- Content    -->
-			<div data-role="content" id="map-canvas">
-			<script>initialize();</script>	
+			<div data-role="content">
+				<h1 class="pg-title">Interactive Maps</h1>
+				<div id="map-container">
+					<div id="map-canvas"></div>
+				</div>
+				<div id="map-text">
+					<div data-role='collapsible' id='teaching-buildings'>
+						<h3 onclick="teachingBuildingMarkersSwitch();">Teaching Buildings</h3>
+						<p><ul></ul></p>
+					</div>
+					<div data-role='collapsible' id='food_outlets'>
+						<h3 onclick="food_outletsMarkersSwitch();">Food Outlets</h3>
+						<p><ul></ul></p>
+					</div>
+					
+					
+					
+				</div>
 			</div>
 			
 			<!-- /content -->
