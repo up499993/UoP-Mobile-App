@@ -4,13 +4,48 @@
 * Last Edit: Thu Feb 27 2014 22.14:22 UTC
 * 
 */
+/* Page */
+.homeIcon
+{
+	height:33% !important;
+}
 
+.ui-page
+{
+	height:100% !important;
+}
+
+.ui-content
+{
+	height:100% !important;
+}
+
+/* General */
+.pg-title
+{
+	margin:0;
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #59379e;
+	text-align:center;
+}
+
+.bold {
+font-weight:bold;
+}
+
+#homeScreen
+{
+	height:100% !important;
+}
+/* Main Page Icons */
 .ui-block-a , .ui-block-b, .ui-block-c, .ui-block-d
 {
 	text-align: center;
 	vertical-align:text-top;
 }
 
+/* Map Page */
 #map-container
 {
 	height:100%;
@@ -27,10 +62,33 @@
 #map-text
 {
 	height:100%;
-	width:40%;
+	width:38%;
 	float:right;
 }
 
+.float-left {
+float: left;
+margin-left: 1em;
+margin-bottom: 1em;
+}
+
+.float-right {
+float: right;
+margin-left: 1em;
+margin-bottom: 1em;
+}
+
+
+
+#teaching-buildings ul li {
+list-style: none;
+} 
+
+#food_outlets ul li {
+list-style: none;
+} 
+
+/* Bus Page */
 #bus-stop-map-canvas
 {
 	height:50%;
@@ -43,51 +101,9 @@
 	width:25%;
 	}
 
-.pg-title
-{
-	margin:0;
-	padding-top: 5px;
-	padding-left: 5px;
-	color: #59379e;
-	text-align:center;
-}
 
-.float-right {
-float: right;
-margin-left: 1em;
-margin-bottom: 1em;
-}
 
-.float-left {
-float: left;
-margin-left: 1em;
-margin-bottom: 1em;
-}
-
-.bold {
-font-weight:bold;
-}
-
-#homeScreen
-{
-	height:100% !important;
-}
-
-.homeIcon
-{
-	height:33% !important;
-}
-
-.ui-page
-{
-	height:100% !important;
-}
-
-.ui-content
-{
-	height:100% !important;
-}
-
+/* Free PC */
 .percBar
 {
 	padding: 5px;
@@ -107,12 +123,12 @@ font-weight:bold;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
     opacity: 0.6;   
 }
-
+/* Coursework */
 #cwkInputs
 {
 	width: 50%;
 }
-
+/* Timetable */
 #persTimeTable
 {
 	width:75%; 
