@@ -1,6 +1,6 @@
 function directory() {
 	//myip = '148.197.136.33'; //test on campus ip
-	myip = '212.185.192.21'; //test off campus ip
+	//myip = '212.185.192.21'; //test off campus ip
 	var cli_ip = myip.substr(0,7);
 	if (cli_ip === '148.197')
 	{

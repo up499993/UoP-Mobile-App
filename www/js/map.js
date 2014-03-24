@@ -573,7 +573,7 @@ function initialize() {
         }, 500);
 
   // Try HTML5 geolocation
-  if(!navigator.geolocation) //remove the ! to use geolocation
+  if(navigator.geolocation)
   {
     navigator.geolocation.getCurrentPosition(function(position) {
      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
