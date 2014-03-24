@@ -1,10 +1,18 @@
 //Globals
 var teachingBuildingMarkers = "off";
 var food_outletMarkers = "off";
+var open_accessMarkers = "off";
+var serv_facil_Markers = "off";
+var prof_serv_Markers = "off";
+var halls_Markers = "off";
 var map;
 var markers = [];
 var teachingBuildingsMarkers = [];
 var food_outletsMarkers = [];
+var open_accMarkers = [];
+var serv_facilMarkers = [];
+var prof_servMarkers = [];
+var hallsMarkers = [];
 
 //Define Teaching Buildings
 var a = {
@@ -236,35 +244,212 @@ var portland_coffee = {
 	marker: 'img/map_markers/blue_MarkerCoffee.png',
 	latlong: new google.maps.LatLng(50.7985075,-1.0993419)
 };
-// Define Open Access Areas			
+// Define Open Access Areas		
+var liboa = {
+    name: 'Library',
+    abbr: 'liboa',
+    marker: 'img/map_markers/paleblue_MarkerComputer.png',
+    latlong: new google.maps.LatLng(50.7937, -1.0978)
+};			
+var parkoa = {
+    name: 'Park',
+    abbr: 'parkoa',
+    marker: 'img/map_markers/paleblue_MarkerComputer.png',
+    latlong: new google.maps.LatLng(50.7975, -1.0940)
+};			
+var burnabyoa = {
+	name: 'Burnaby',
+	abbr: 'burnabyoa',
+    marker: 'img/map_markers/paleblue_MarkerComputer.png',
+	latlong: new google.maps.LatLng(50.7980, -1.0980)
+};
+var angleseaoa = {
+	name: 'Anglesea',
+	abbr: 'angleseaoa',
+    marker: 'img/map_markers/paleblue_MarkerComputer.png',
+	latlong: new google.maps.LatLng(50.7978, -1.0965)
+};
+var langsit = {
+	name: 'Langstone IT Centre',
+	abbr: 'langsit',
+	marker: 'img/map_markers/paleblue_MarkerComputer.png',
+	latlong: new google.maps.LatLng(50.7972545,-1.0416836)
+};
+//Define Facilities and Student Services Buildings
+var nuffield = {
+	name: 'Nuffield Centre',
+	abbr: 'nuffield',
+	marker: 'img/map_markers/red_MarkerA.png',
+	latlong: new google.maps.LatLng(50.7951855,-1.0962857)
+};
+var pdoor = {
+	name: 'Purple Door',
+	abbr: 'pdoor',
+	marker: 'img/map_markers/red_MarkerB.png',
+	latlong: new google.maps.LatLng(50.7959083,-1.0936767)
+};
+var ssc = {
+	name: 'Spinnaker Sports Centre',
+	abbr: 'ssc',
+	marker: 'img/map_markers/red_MarkerC.png',
+	latlong: new google.maps.LatLng(50.7948494,-1.0970718)
+};
+var spsc = {
+	name: 'St. Paul\'s Sports Centre',
+	abbr: 'spsc',
+	marker: 'img/map_markers/red_MarkerD.png',
+	latlong: new google.maps.LatLng(50.7933228,-1.0946993)
+};
+var lss = {
+	name: 'Langstone Sports Site',
+	abbr: 'lss',
+	marker: 'img/map_markers/red_MarkerE.png',
+	latlong: new google.maps.LatLng(50.796008,-1.043766)
+};
+var ulib = {
+	name: 'University Library',
+	abbr: 'ulib',
+	marker: 'img/map_markers/red_MarkerF.png',
+	latlong: new google.maps.LatLng(50.7937997,-1.0981019)
+};
+var ub3s = {
+	name: 'Student Union and 3rd Space',
+	abbr: 'ub3s',
+	marker: 'img/map_markers/red_MarkerG.png',
+	latlong: new google.maps.LatLng(50.7943965,-1.0965784)
+};
+//Define Professional Services Buildings
+var	merc = {
+	name: 'Mercantile House',
+	abbr: 'merc',
+	marker: 'img/map_markers/green_MarkerA.png',
+	latlong: new google.maps.LatLng(50.7948014,-1.0956397)
+};
+var sac = {
+	name: 'St. Andrew\'s Court',
+	abbr: 'sac',
+	marker: 'img/map_markers/green_MarkerB.png',
+	latlong: new google.maps.LatLng(50.7956584,-1.0949152)
+};
+var uh = {
+	name: 'University House',
+	abbr: 'uh',
+	marker: 'img/map_markers/green_MarkerC.png',
+	latlong: new google.maps.LatLng(50.7951259,-1.0935123)
+};
+//Define halls
+var bateson = {
+	name: 'Bateson Hall',
+	abbr: 'bateson',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7963452,-1.0905892)
+};
+var burrell = {
+	name: 'Burrell House',
+	abbr: 'burrell',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7889274,-1.0951226)
+};
+var hlaw = {
+	name: 'Harry Law Hall',
+	abbr: 'hlaw',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7962372,-1.0909973)
+};
+var jw = {
+	name: 'James Watson Hall',
+	abbr: 'jw',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7961846,-1.0941593)
+};
+var langvil = {
+	name: 'Langstone Student Village',
+	abbr: 'langvil',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7972545,-1.0416836)
+};
+var mrule = {
+	name: 'Margaret Rule Hall',
+	abbr: 'mrule',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7972914,-1.0903048)
+};
+var rees = {
+	name: 'Rees Hall',
+	abbr: 'rees',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7882021,-1.0960819)
+};
+var trafalgar = {
+	name: 'Trafalgar Hall',
+	abbr: 'trafalgar',
+	marker: 'img/map_markers/pink_MarkerHalls.png',
+	latlong: new google.maps.LatLng(50.7951636,-1.0919059)
+};
 
 //Building Arrays
 var buildings = [a, bk, bb, bt, ds, el, ht, jwh, kh, lg, ml, pk, po, pd, rv, rb, ro, sb, sa, sg, sm, ub, ul, wbb, wb, temp1to4, temp5to6];
-
 var teaching_buildings = [a, bk, bb, bt, ds, el, ht, jwh, kh, lg, ml, pk, po, pd, rv, rb, ro, sb, sa, sg, sm, ub, ul, wbb, wb, temp1to4, temp5to6];
-
 var food_outlets = [stgeorge_coffee, library_coffee, waterhole, coco, artscafe, standrew_cafe, thirdspace, park_coffee, a901];
+var open_acc = [liboa, parkoa, burnabyoa, angleseaoa, langsit];
+var serv_facil = [nuffield, pdoor, ssc, spsc, lss, ulib, ub3s];
+var prof_serv = [merc, sac, uh];
+var halls = [bateson, burrell, hlaw, jw, langvil, mrule, rees, trafalgar];
 
 function mapContent()
 {
+	//Clear divs
+	document.querySelector('#teaching-buildings ul').innerHTML = "";
+	document.querySelector('#food_outlets ul').innerHTML = "";
+	document.querySelector('#open_acc ul').innerHTML = "";
+	document.querySelector('#serv_facil ul').innerHTML = "";
+	document.querySelector('#prof_serv ul').innerHTML = "";
+	document.querySelector('#halls ul').innerHTML = "";
+	
 	// Add Teaching Building Names to Page
 	for (var i = 0; i < teaching_buildings.length; i++) 
 	{
+		
 		var abbr = teaching_buildings[i].abbr;
 		if (abbr === "temp1to4") {abbr = "temp1-4";} else if (abbr === "temp5to6") {abbr = "temp5-6";}
 		abbr = abbr.toUpperCase();
-		document.querySelector('#teaching-buildings ul').innerHTML += "<li id='teaching-" + teaching_buildings[i].abbr + "'><span onmouseover='teachingBuildingsMarkers_animate(" + teaching_buildings[i].abbr + ");'>" + teaching_buildings[i].name + " (" + abbr + ")</span></li>";
+		document.querySelector('#teaching-buildings ul').innerHTML += "<li id='teaching-" + teaching_buildings[i].abbr + "'><span onmouseover='teachingBuildingsMarkers_animate(" + teaching_buildings[i].abbr + ");'>" + teaching_buildings[i].name + " (" + abbr + ") - Map Location: " + teaching_buildings[i].marker.substr(teaching_buildings[i].marker.lastIndexOf("Marker")+6,1) + "</span></li>";
 	}
 	
 	// Add Food Outlet Names to Page
 	for (var i = 0; i < food_outlets.length; i++) 
 	{
-		var abbr = food_outlets[i].abbr;
-		abbr = abbr.toUpperCase();
+		
 		document.querySelector('#food_outlets ul').innerHTML += "<li id='food_outlets-" + food_outlets[i].abbr + "'><span onmouseover='food_outletsMarkers_animate(" + food_outlets[i].abbr + ");'>" + food_outlets[i].name + "</span></li>";
 	}
 	
+	// Add Open Access Names to Page
+	for (var i = 0; i < open_acc.length; i++) 
+	{
+		
+		document.querySelector('#open_acc ul').innerHTML += "<li id='open_acc-" + open_acc[i].abbr + "'><span onmouseover='open_accMarkers_animate(" + open_acc[i].abbr + ");'>" + open_acc[i].name + "</span></li>";
+	}
 	
+	// Add Services and Facilities Names to Page
+	for (var i = 0; i < serv_facil.length; i++) 
+	{
+		
+		document.querySelector('#serv_facil ul').innerHTML += "<li id='serv_facil-" + serv_facil[i].abbr + "'><span onmouseover='serv_facilMarkers_animate(" + serv_facil[i].abbr + ");'>" + serv_facil[i].name + " - Map Location: " + serv_facil[i].marker.substr(serv_facil[i].marker.lastIndexOf("Marker")+6,1) + "</span></li>";
+	}
+	
+	// Add Professional Services Names to Page
+	for (var i = 0; i < prof_serv.length; i++) 
+	{
+		
+		document.querySelector('#prof_serv ul').innerHTML += "<li id='prof_serv-" + prof_serv[i].abbr + "'><span onmouseover='prof_servMarkers_animate(" + prof_serv[i].abbr + ");'>" + prof_serv[i].name + " - Map Location: " + prof_serv[i].marker.substr(prof_serv[i].marker.lastIndexOf("Marker")+6,1) + "</span></li>";
+	}
+	
+	// Add Halls Names to Page
+	for (var i = 0; i < halls.length; i++) 
+	{
+		
+		document.querySelector('#halls ul').innerHTML += "<li id='halls-" + halls[i].abbr + "'><span onmouseover='hallsMarkers_animate(" + halls[i].abbr + ");'>" + halls[i].name + " - Map Location: " + halls[i].marker.substr(halls[i].marker.lastIndexOf("Marker")+6,1) + "</span></li>";
+	}
 }
 
 // Animate Teaching Buildings Markers
@@ -296,6 +481,78 @@ for(var i2 = 0, m = null; i2 < food_outletsMarkers.length; ++i2) {
         m = food_outletsMarkers[i2];
         console.log("marker: " + i2 + " contains " + i.abbr);
 		markerNo = food_outletsMarkers[i2];
+		markerNo.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function(){markerNo.setAnimation(google.maps.Animation.null);},1400);
+		break;
+    }
+}
+}
+
+// Animate Open Access Markers
+function open_accMarkers_animate(i)
+{
+console.log("animate " + i.abbr);
+var markerNo;
+for(var i2 = 0, m = null; i2 < open_accMarkers.length; ++i2) {
+    console.log("try " + i2);
+    if(open_accMarkers[i2].abbr == i.abbr) {
+        m = open_accMarkers[i2];
+        console.log("marker: " + i2 + " contains " + i.abbr);
+		markerNo = open_accMarkers[i2];
+		markerNo.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function(){markerNo.setAnimation(google.maps.Animation.null);},1400);
+		break;
+    }
+}
+}
+
+// Animate Service and Facilities Markers
+function serv_facilMarkers_animate(i)
+{
+console.log("animate " + i.abbr);
+var markerNo;
+for(var i2 = 0, m = null; i2 < serv_facilMarkers.length; ++i2) {
+    console.log("try " + i2);
+    if(serv_facilMarkers[i2].abbr == i.abbr) {
+        m = serv_facilMarkers[i2];
+        console.log("marker: " + i2 + " contains " + i.abbr);
+		markerNo = serv_facilMarkers[i2];
+		markerNo.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function(){markerNo.setAnimation(google.maps.Animation.null);},1400);
+		break;
+    }
+}
+}
+
+// Animate Professional Service Markers
+function prof_servMarkers_animate(i)
+{
+console.log("animate " + i.abbr);
+var markerNo;
+for(var i2 = 0, m = null; i2 < prof_servMarkers.length; ++i2) {
+    console.log("try " + i2);
+    if(prof_servMarkers[i2].abbr == i.abbr) {
+        m = prof_servMarkers[i2];
+        console.log("marker: " + i2 + " contains " + i.abbr);
+		markerNo = prof_servMarkers[i2];
+		markerNo.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function(){markerNo.setAnimation(google.maps.Animation.null);},1400);
+		break;
+    }
+}
+}
+
+// Animate Halls Markers
+function hallsMarkers_animate(i)
+{
+console.log("animate " + i.abbr);
+var markerNo;
+for(var i2 = 0, m = null; i2 < hallsMarkers.length; ++i2) {
+    console.log("try " + i2);
+    if(hallsMarkers[i2].abbr == i.abbr) {
+        m = hallsMarkers[i2];
+        console.log("marker: " + i2 + " contains " + i.abbr);
+		markerNo = hallsMarkers[i2];
 		markerNo.setAnimation(google.maps.Animation.BOUNCE);
 		setTimeout(function(){markerNo.setAnimation(google.maps.Animation.null);},1400);
 		break;
@@ -341,6 +598,10 @@ function initialize() {
   mapContent();
   createTeachingBuildingMarkers();
   createfood_outletsMarkers();
+  createopen_accMarkers();
+  createserv_facilMarkers();
+  createprof_servMarkers();
+  createhallsMarkers();
 }
 
 function handleNoGeolocation(errorFlag) 
@@ -370,7 +631,7 @@ function createTeachingBuildingMarkers()
 		}
 }
 
-// Add Food OutletsMarkers to Map
+// Add Food Outlets Markers to Map
 function createfood_outletsMarkers()
 {
 	for (var i = 0; i < food_outlets.length; i++) 
@@ -385,37 +646,183 @@ function createfood_outletsMarkers()
 			food_outletsMarkers.push(marker);
 		}
 }
+
+// Add Open Access Markers to Map
+function createopen_accMarkers()
+{
+	for (var i = 0; i < open_acc.length; i++) 
+		{
+			  var marker = new google.maps.Marker({
+			  position: open_acc[i].latlong,
+			  icon: open_acc[i].marker,
+			  draggable:false,
+			  title: open_acc[i].name,
+			  abbr: open_acc[i].abbr
+			});
+			open_accMarkers.push(marker);
+		}
+}
+
+// Add Service and Facility Markers to Map
+function createserv_facilMarkers()
+{
+	for (var i = 0; i < serv_facil.length; i++) 
+		{
+			  var marker = new google.maps.Marker({
+			  position: serv_facil[i].latlong,
+			  icon: serv_facil[i].marker,
+			  draggable:false,
+			  title: serv_facil[i].name,
+			  abbr: serv_facil[i].abbr
+			});
+			serv_facilMarkers.push(marker);
+		}
+}
+
+// Add Professional Service Markers to Map
+function createprof_servMarkers()
+{
+	for (var i = 0; i < prof_serv.length; i++) 
+		{
+			  var marker = new google.maps.Marker({
+			  position: prof_serv[i].latlong,
+			  icon: prof_serv[i].marker,
+			  draggable:false,
+			  title: prof_serv[i].name,
+			  abbr: prof_serv[i].abbr
+			});
+			prof_servMarkers.push(marker);
+		}
+}
+
+// Add Halls Markers to Map
+function createhallsMarkers()
+{
+	for (var i = 0; i < halls.length; i++) 
+		{
+			  var marker = new google.maps.Marker({
+			  position: halls[i].latlong,
+			  icon: halls[i].marker,
+			  draggable:false,
+			  title: halls[i].name,
+			  abbr: halls[i].abbr
+			});
+			hallsMarkers.push(marker);
+		}
+}
+
 // Sets the map on all teaching buildings markers in the array.
 function setTeachingBuildingsMap(map) {
   for (var i = 0; i < teachingBuildingsMarkers.length; i++) {
     teachingBuildingsMarkers[i].setMap(map);
   }
 }
+
 // Sets the map on all food outlets markers in the array.
 function setfood_outletsMap(map) {
   for (var i = 0; i < food_outletsMarkers.length; i++) {
     food_outletsMarkers[i].setMap(map);
   }
 }
+
+// Sets the map on all open access markers in the array.
+function setopen_accMap(map) {
+  for (var i = 0; i < open_accMarkers.length; i++) {
+    open_accMarkers[i].setMap(map);
+  }
+}
+
+// Sets the map on all service and facility markers in the array.
+function setserv_facilMap(map) {
+  for (var i = 0; i < serv_facilMarkers.length; i++) {
+    serv_facilMarkers[i].setMap(map);
+  }
+}
+
+// Sets the map on all professional service markers in the array.
+function setprof_servMap(map) {
+  for (var i = 0; i < prof_servMarkers.length; i++) {
+    prof_servMarkers[i].setMap(map);
+  }
+}
+
+// Sets the map on all halls markers in the array.
+function sethallsMap(map) {
+  for (var i = 0; i < hallsMarkers.length; i++) {
+    hallsMarkers[i].setMap(map);
+  }
+}
+
 // Removes the teaching buildings markers from the map
 function clearTeachingBuildingsMarkers() {
   for (var i = 0; i < teachingBuildingsMarkers.length; i++) {
     teachingBuildingsMarkers[i].setMap(null);
   }
 }
+
 // Removes the food outlets markers from the map
 function clearfood_outletsMarkers() {
   for (var i = 0; i < food_outletsMarkers.length; i++) {
     food_outletsMarkers[i].setMap(null);
   }
 }
+
+// Removes the open access markers from the map
+function clearopen_accMarkers() {
+  for (var i = 0; i < open_accMarkers.length; i++) {
+    open_accMarkers[i].setMap(null);
+  }
+}
+
+// Removes the service and facility markers from the map
+function clearserv_facilMarkers() {
+  for (var i = 0; i < serv_facilMarkers.length; i++) {
+    serv_facilMarkers[i].setMap(null);
+  }
+}
+
+// Removes the professional services markers from the map
+function clearprof_servMarkers() {
+  for (var i = 0; i < prof_servMarkers.length; i++) {
+    prof_servMarkers[i].setMap(null);
+  }
+}
+
+// Removes the halls markers from the map
+function clearhallsMarkers() {
+  for (var i = 0; i < hallsMarkers.length; i++) {
+    hallsMarkers[i].setMap(null);
+  }
+}
+
 // Shows any Teaching Buildings markers currently in the array.
 function showTeachingBuildingsMarkers() {
   setTeachingBuildingsMap(map);
 }
+
 // Shows any Food Outlets markers currently in the array.
 function showfood_outletsMarkers() {
   setfood_outletsMap(map);
+}
+
+// Shows any Open Access markers currently in the array.
+function showopen_accMarkers() {
+  setopen_accMap(map);
+}
+
+// Shows any Service and Facilities markers currently in the array.
+function showserv_facilMarkers() {
+  setserv_facilMap(map);
+}
+
+// Shows any professional services markers currently in the array.
+function showprof_servMarkers() {
+  setprof_servMap(map);
+}
+
+// Shows any halls markers currently in the array.
+function showhallsMarkers() {
+  sethallsMap(map);
 }
 
 // Turn Teaching Buildings Markers On and Off
@@ -433,6 +840,7 @@ function teachingBuildingMarkersSwitch()
 		clearTeachingBuildingsMarkers();
 	}
 }
+
 // Turn Food Outlets Markers On and Off
 function food_outletsMarkersSwitch()
 {
@@ -448,4 +856,69 @@ function food_outletsMarkersSwitch()
 		clearfood_outletsMarkers();
 	}
 }
+
+// Turn Open Access Markers On and Off
+function open_accMarkersSwitch()
+{
+	
+	if (open_accessMarkers === "off")
+	{
+		open_accessMarkers = "on";
+		showopen_accMarkers();
+	}
+	else if (open_accessMarkers === "on")
+	{
+		open_accessMarkers = "off";
+		clearopen_accMarkers();
+	}
+}
+
+// Turn Service and Facilities Markers On and Off
+function serv_facilMarkersSwitch()
+{
+	
+	if (serv_facil_Markers === "off")
+	{
+		serv_facil_Markers = "on";
+		showserv_facilMarkers();
+	}
+	else if (serv_facil_Markers === "on")
+	{
+		serv_facil_Markers = "off";
+		clearserv_facilMarkers();
+	}
+}
+
+// Turn Professional Service Markers On and Off
+function prof_servMarkersSwitch()
+{
+	
+	if (prof_serv_Markers === "off")
+	{
+		prof_serv_Markers = "on";
+		showprof_servMarkers();
+	}
+	else if (prof_serv_Markers === "on")
+	{
+		prof_serv_Markers = "off";
+		clearprof_servMarkers();
+	}
+}
+
+// Turn Halls Markers On and Off
+function hallsMarkersSwitch()
+{
+	
+	if (halls_Markers === "off")
+	{
+		halls_Markers = "on";
+		showhallsMarkers();
+	}
+	else if (halls_Markers === "on")
+	{
+		halls_Markers = "off";
+		clearhallsMarkers();
+	}
+}
+
 google.maps.event.addDomListener(window, 'load', initialize);
