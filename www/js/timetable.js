@@ -56,12 +56,12 @@ $.ajax({
 		
 		//turn DTEND into an end date time
 		var DTEND = ical[i].DTEND;
-		var end_yr = DTSTART.substring(0,4);
-		var end_mo = DTSTART.substring(4,6);
-		var end_da = DTSTART.substring(6,8);
-		var end_hr = DTSTART.substring(9,11);
-		var end_mi = DTSTART.substring(11,13);
-		var end_se = DTSTART.substring(13,15);
+		var end_yr = DTEND.substring(0,4);
+		var end_mo = DTEND.substring(4,6);
+		var end_da = DTEND.substring(6,8);
+		var end_hr = DTEND.substring(9,11);
+		var end_mi = DTEND.substring(11,13);
+		var end_se = DTEND.substring(13,15);
 		var dateEnd = new Date(end_yr + '-' + end_mo + '-' + end_da + "T" + end_hr + ":" + end_mi + ":" + end_se)
 		
 		// Format Day, Month and st, nd, rd, th
