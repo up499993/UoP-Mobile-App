@@ -88,6 +88,22 @@ list-style: none;
 list-style: none;
 } 
 
+#open_acc ul li {
+list-style: none;
+} 
+
+#serv_facil ul li {
+list-style: none;
+} 
+
+#prof_serv ul li {
+list-style: none;
+} 
+
+#halls ul li {
+list-style: none;
+} 
+
 /* Bus Page */
 #bus-stop-map-canvas
 {
@@ -99,7 +115,7 @@ list-style: none;
 #showMapBtn
 {
 	width:25%;
-	}
+}
 
 
 
