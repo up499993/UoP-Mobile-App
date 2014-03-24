@@ -3,7 +3,7 @@ function directory() {
 	alert(cli_ip);
 	if (cli_ip === '148.197')
 	{
-		var ref = window.open('http://sdtools.port.ac.uk/directory8', '_blank', 'location=yes&hidden=yes');         
+		var ref = window.open('http://sdtools.port.ac.uk/directory8', '_blank', 'location=yes');         
     }
 	else
 	{
