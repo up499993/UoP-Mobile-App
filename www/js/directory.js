@@ -1,4 +1,5 @@
 function directory() {
+myip=212.185.192.21;
 	var cli_ip = myip.substr(0,7);
 	alert(cli_ip);
 	if (cli_ip === '148.197')
