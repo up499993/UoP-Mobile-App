@@ -448,7 +448,7 @@ function mapContent()
 	for (var i = 0; i < halls.length; i++) 
 	{
 		
-		document.querySelector('#halls ul').innerHTML += "<li id='halls-" + halls[i].abbr + "'><span onmouseover='hallsMarkers_animate(" + halls[i].abbr + ");'>" + halls[i].name + " - Map Location: " + halls[i].marker.substr(halls[i].marker.lastIndexOf("Marker")+6,1) + "</span></li>";
+		document.querySelector('#halls ul').innerHTML += "<li id='halls-" + halls[i].abbr + "'><span onmouseover='hallsMarkers_animate(" + halls[i].abbr + ");'>" + halls[i].name + "</span></li>";
 	}
 }
 
