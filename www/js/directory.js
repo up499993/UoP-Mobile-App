@@ -9,3 +9,4 @@ function directory() {
 	{
 	alert("Only Available when on campus");
 	}
+}
