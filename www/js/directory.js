@@ -1,8 +1,11 @@
 function directory() {
-		//alert("go");
-         var ref = window.open('http://sdtools.port.ac.uk/directory8', '_blank', 'location=yes', 'hidden=yes');
-         //ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-         //ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message + event.code); });
-         ref.addEventListener('exit', function(event) { alert(event.type); });
+	var cli_ip = myip.substr(0,7);
+	alert(cli_ip);
+	if (cli_ip === '148.197')
+	{
+		var ref = window.open('http://sdtools.port.ac.uk/directory8', '_blank', 'location=yes&hidden=yes');         
     }
+	else
+	{
+	alert("Only Available when on campus");
+	}
