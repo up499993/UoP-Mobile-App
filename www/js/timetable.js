@@ -20,7 +20,7 @@ document.querySelector('#persTimeTable').innerHTML = "<div data-role='fieldconta
 }
 else
 {
-var icalLink = 'http://proj.scottwalton.co.uk/json_proxy/ical.php?ics=http://timetable.myport.ac.uk/57C6D47B8C6C9E4F.ics';
+var icalLink = 'http://proj.scottwalton.co.uk/json_proxy/ical.php?ics=' + localStorage["icalLink"];
 $.ajax({
     url: icalLink,
     dataType: 'json',
