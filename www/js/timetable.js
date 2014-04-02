@@ -26,7 +26,7 @@ $.ajax({
     dataType: 'json',
     success: function( ical ) {
 	console.log("Got JSON");
-	
+	console.log(ical);
 	// Extract info from Description
 	for (var i = 0; i < ical.length; i++){
 	ical[i].WEEK  = ical[i].DESCRIPTION.split("\\n")[1].substr(ical[i].DESCRIPTION.split("\\n")[1].indexOf(":") + 2);
@@ -53,7 +53,6 @@ $.ajax({
 		var start_mi = DTSTART.substring(11,13);
 		var start_se = DTSTART.substring(13,15);
 		var dateStart = new Date(start_yr + '-' + start_mo + '-' + start_da + "T" + start_hr + ":" + start_mi + ":" + start_se)
-		
 		//turn DTEND into an end date time
 		var DTEND = ical[i].DTEND;
 		var end_yr = DTEND.substring(0,4);
@@ -74,18 +73,18 @@ $.ajax({
 		weekday[5]="Fri";
 		weekday[6]="Sat";
 		var month=new Array(12);
-		month[1]="Jan";
-		month[2]="Feb";
-		month[3]="Mar";
-		month[4]="Apr";
-		month[5]="May";
-		month[6]="Jun";
-		month[7]="Jul";
-		month[8]="Aug";
-		month[9]="Sep";
-		month[10]="Oct";
-		month[11]="Nov";
-		month[12]="Dec";
+		month[0]="Jan";
+		month[1]="Feb";
+		month[2]="Mar";
+		month[3]="Apr";
+		month[4]="May";
+		month[5]="Jun";
+		month[6]="Jul";
+		month[7]="Aug";
+		month[8]="Sep";
+		month[9]="Oct";
+		month[10]="Nov";
+		month[11]="Dec";
 		function get_nth_suffix(date) {
 			switch (date) {
 			case 1:
@@ -109,7 +108,7 @@ $.ajax({
 		var grp;
 		if (ical[i].GROUP === "n\/a"){grp=""}else{grp=ical[i].GROUP};
 		//add event to table
-		document.querySelector('#persTimeTable tbody').innerHTML = document.querySelector('#persTimeTable').innerHTML + "<tr> <td>" +  weekday[dateStart.getDay()] + " " +  dateStart.getDay() + get_nth_suffix(dateStart.getDay()) + " " +  month[dateStart.getMonth()]+ "</td> <td>" + ical[i].UNIT + "</td> <td nowrap='nowrap'>" + start_hr + ":" + start_mi + " - " + end_hr + ":" + end_mi + "</td> <td>" + grp + "</td> <td>" + ical[i].LECTURER + "</td> <td>" + ical[i].TYPE + "</td> <td>" + buildingShort + ical[i].ROOM + "</td> </tr>";
+		document.querySelector('#persTimeTable tbody').innerHTML = document.querySelector('#persTimeTable').innerHTML + "<tr> <td>" +  weekday[dateStart.getDay()] + " " +  dateStart.getDate() + get_nth_suffix(dateStart.getDate()) + " " +  month[dateStart.getMonth()]+ "</td> <td>" + ical[i].UNIT + "</td> <td nowrap='nowrap'>" + start_hr + ":" + start_mi + " - " + end_hr + ":" + end_mi + "</td> <td>" + grp + "</td> <td>" + ical[i].LECTURER + "</td> <td>" + ical[i].TYPE + "</td> <td>" + buildingShort + ical[i].ROOM + "</td> </tr>";
 		
 	}
 	
